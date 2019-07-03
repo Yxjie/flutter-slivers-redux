@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_list_rdux/SplashPage.dart';
 import 'package:flutter_list_rdux/page/page.dart';
 
 void main() => runApp(MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: HomePage().buildPage(null),
+      home: SplashPage(),
     );
   }
 }

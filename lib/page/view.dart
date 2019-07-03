@@ -60,7 +60,7 @@ _buildScrollView(ListAdapter adapter, ViewService viewService) {
 
       SliverPersistentHeader(
           delegate: __SliverAppBarDelegate(
-              child: Image.asset('images/ic.jpeg',fit: BoxFit.fitWidth,),
+              child: Image.asset('images/ic.jpeg',fit: BoxFit.cover,),
               maxHeight: 180,
               minHeight: 60)),
 
