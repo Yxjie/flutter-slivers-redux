@@ -1,14 +1,50 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart';
 import 'action.dart';
+import 'package:flutter/material.dart';
+import 'package:toast/toast.dart';
 import 'state.dart';
+
+///SnackBar context 不是Scaffold不能弹问题加入
+var _scaffoldKey = GlobalKey<ScaffoldState>();
 
 Widget buildView(
     DetailState state, Dispatch dispatch, ViewService viewService) {
   return Scaffold(
+    key: _scaffoldKey,
     body: CustomScrollView(
       slivers: <Widget>[
         SliverAppBar(
+          actions: <Widget>[
+            PopupMenuButton(
+              itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
+                    PopupMenuItem<String>(
+                      child: Text("热度"),
+                      value: "hot",
+                    ),
+                    PopupMenuItem<String>(
+                      child: Text("最新"),
+                      value: "new",
+                    ),
+                  ],
+              onSelected: (String action) {
+                switch (action) {
+                  case "hot":
+                    var snackBar = SnackBar(content: Text("hot"));
+//                    Scaffold.of(viewService.context).showSnackBar(snackBar);
+                    _scaffoldKey.currentState.showSnackBar(snackBar);
+                    print("hot");
+                    break;
+                  case "new":
+                    print("new");
+                    Toast.show("new", viewService.context);
+                    break;
+                }
+              },
+              onCanceled: () {
+                print("onCanceled");
+              },
+            ),
+          ],
           title: Text("Detail[Sliver控件类使用]"),
           backgroundColor: Theme.of(viewService.context).accentColor,
           expandedHeight: 220,
