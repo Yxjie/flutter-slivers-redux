@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_list_rdux/page/page.dart';
 
+import 'utils/common_util.dart';
+
 class SplashPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _SplashPageState();
@@ -15,7 +17,8 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    //工具类 获取屏宽
+    double screenWidth = CommonUtil.INSTANCE.screenWidth(context);
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
@@ -35,7 +38,7 @@ class _SplashPageState extends State<SplashPage> {
                 child: Text(
                   "Yxjie\n真帅气！么么哒！！",
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white,fontSize: 26),
+                  style: TextStyle(color: Colors.white, fontSize: 26),
                 ),
               )),
         ],

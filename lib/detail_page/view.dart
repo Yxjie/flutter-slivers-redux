@@ -30,7 +30,7 @@ Widget buildView(
                 switch (action) {
                   case "hot":
                     var snackBar = SnackBar(content: Text("hot"));
-//                    Scaffold.of(viewService.context).showSnackBar(snackBar);
+//                    Scaffold.of(viewService.context).showSnackBar(snackBar);//此种方式不行
                     _scaffoldKey.currentState.showSnackBar(snackBar);
                     print("hot");
                     break;
