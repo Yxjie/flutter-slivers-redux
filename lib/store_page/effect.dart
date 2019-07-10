@@ -1,12 +1,20 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_list_rdux/utils/navigator_util.dart';
 import 'action.dart';
 import 'state.dart';
 
 Effect<StoreState> buildEffect() {
   return combineEffects(<Object, Effect<StoreState>>{
     Lifecycle.initState: _init,
+    StoreAction.jumpWeb:_jumpWeb,
   });
+}
+
+///跳转Web
+void _jumpWeb(Action action, Context<StoreState> ctx){
+  final web="https://www.jianshu.com/u/4348c255f36d";
+  NavigatorUtil.jumpWeb(ctx.context, web);
 }
 
 ///构建默认数据

@@ -24,28 +24,31 @@ Widget buildView(StoreState state, Dispatch dispatch, ViewService viewService) {
         ),
         body: TabBarView(
             children: state.choices
-                .map((value) => _buildCard(value.title, value.icon))
+                .map((value) => _buildCard(value.title, value.icon,dispatch))
                 .toList()),
       ));
 }
 
-Widget _buildCard(String title, IconData icon) {
+Widget _buildCard(String title, IconData icon,Dispatch dispatch) {
   return Card(
     color: Colors.white,
     child: Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Icon(
-            icon,
-            size: 160,
-            color: Colors.deepOrange,
-          ),
-          Text(
-            title,
-            style: TextStyle(fontSize: 20, color: Colors.deepOrange),
-          )
-        ],
+      child:GestureDetector(
+        onTap: ()=> dispatch(StoreActionCreator.onJumpWeb()),
+        child:  Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Icon(
+              icon,
+              size: 160,
+              color: Colors.deepOrange,
+            ),
+            Text(
+              title,
+              style: TextStyle(fontSize: 20, color: Colors.deepOrange),
+            )
+          ],
+        ),
       ),
     ),
   );

@@ -98,20 +98,23 @@ Widget _buildGridItem(title) {
       border: Border.all(color: Colors.deepOrange, width: 0.5),
     ),
     padding: const EdgeInsets.all(15),
-    child: Column(
-      children: <Widget>[
-        Icon(
-          Icons.android,
-          color: Colors.deepOrange,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: Text(
-            title,
-            textAlign: TextAlign.center,
+    child:Center(
+      child:  Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Icon(
+            Icons.android,
+            color: Colors.deepOrange,
           ),
-        )
-      ],
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+            ),
+          )
+        ],
+      ),
     ),
   );
 }
