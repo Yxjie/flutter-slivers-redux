@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_list_rdux/page/page.dart';
+import 'package:flutter_list_rdux/utils/navigator_util.dart';
 
 import 'utils/common_util.dart';
 
@@ -48,10 +49,12 @@ class _SplashPageState extends State<SplashPage> {
 
   void _countDown() {
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-              builder: (buildContext) => HomePage().buildPage(null)));
+      NavigatorUtil.jumpReplacePage(context, HomePage().buildPage(null));
+
+//      Navigator.pushReplacement(
+//          context,
+//          MaterialPageRoute(
+//              builder: (buildContext) => HomePage().buildPage(null)));
     });
   }
 }

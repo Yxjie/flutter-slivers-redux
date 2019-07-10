@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 
 ///网络请求封装
@@ -21,6 +20,7 @@ class HttpUtil {
     _dio
       ..options.baseUrl = baseUrl
       ..interceptors.add(InterceptorsWrapper(onRequest: (req) {
+        //请求头添加
         req.headers['User-Agent'] =
             'Autoyol_98:Android_28|2FC850F4BC5FFE2C534C71B632228226D30A340D04EA012E90D0139C1C';
         req.headers['Content-Type'] = 'application/json; charset=utf-8';
