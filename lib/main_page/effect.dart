@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_list_rdux/page/page.dart';
+import 'package:flutter_list_rdux/store_page/page.dart';
 import 'package:flutter_list_rdux/widget_page/page.dart';
 import 'action.dart';
 import 'state.dart';
@@ -25,7 +26,8 @@ void _init(Action action, Context<MainState> ctx) {
     HomePage().buildPage(null),
     WidgetPage().buildPage(null),
 //    _buildWidget("WIDGET"),
-    _buildWidget("我的收藏"),
+//    _buildWidget("我的收藏"),
+    StorePage().buildPage(null),
     _buildWidget("关于手册")
   ];
 
