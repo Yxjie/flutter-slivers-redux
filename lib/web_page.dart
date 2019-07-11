@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+
 ///
 class WebViewPage extends StatefulWidget {
   String webUrl;
@@ -14,17 +17,42 @@ class WebViewPage extends StatefulWidget {
 class _WebViewPageState extends State<WebViewPage> {
   final flutterWebViewPlugin = FlutterWebviewPlugin();
 
+  // On urlChanged stream
+  StreamSubscription<WebViewStateChanged> _onStateChanged;
+
+  StreamSubscription<WebViewHttpError> _onHttpError;
+
+  // On urlChanged stream
+  StreamSubscription<String> _onUrlChanged;
+
   @override
   void initState() {
     super.initState();
     if (widget.webUrl == null) {
       widget.webUrl = "http://www.baidu.com";
     }
+    //flutterWebViewPlugin 监听想要监听内容
+    _onStateChanged =
+        flutterWebViewPlugin.onStateChanged.listen((WebViewStateChanged state) {
+      print('onStateChanged: ${state.type} ${state.url}');
+    });
+
+    _onHttpError =
+        flutterWebViewPlugin.onHttpError.listen((WebViewHttpError error) {
+      print("onHttpError: ${error.code} ${error.url}");
+    });
+
+    _onUrlChanged = flutterWebViewPlugin.onUrlChanged.listen((String url) {
+      print("onUrlChanged: $url");
+    });
   }
 
   @override
   void dispose() {
     super.dispose();
+    _onStateChanged?.cancel();
+    _onHttpError?.cancel();
+    _onUrlChanged?.cancel();
     flutterWebViewPlugin.dispose();
   }
 
@@ -37,11 +65,12 @@ class _WebViewPageState extends State<WebViewPage> {
         ),
         withZoom: true,
         withLocalStorage: true,
-        initialChild: Container(
-          child: Center(
-            child: CircularProgressIndicator(),
-          ),
-        ),
+//        //默认就是有加载圆环提示
+//        initialChild: Container(
+//          child: Center(
+//            child: CircularProgressIndicator(),
+//          ),
+//        ),
         bottomNavigationBar: BottomAppBar(
           child: Row(
             children: <Widget>[

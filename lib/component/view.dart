@@ -7,10 +7,10 @@ import 'state.dart';
 Widget buildView(ItemState state, Dispatch dispatch, ViewService viewService) {
   return Column(
     children: <Widget>[
-      Container(
-        padding: const EdgeInsets.all(10),
-        child: GestureDetector(
-          child:  Row(
+      InkWell(
+        child: Container(
+          padding: const EdgeInsets.all(10),
+          child: Row(
             children: <Widget>[
               Text(
                 state.title,
@@ -26,9 +26,8 @@ Widget buildView(ItemState state, Dispatch dispatch, ViewService viewService) {
               )
             ],
           ),
-          onTap: ()=> dispatch(ItemActionCreator.onJumpDetail()),
         ),
-
+        onTap: () => dispatch(ItemActionCreator.onJumpDetail()),
       ),
       Container(
         height: 1,
