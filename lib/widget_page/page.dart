@@ -9,15 +9,16 @@ import 'view.dart';
 class WidgetPage extends Page<WidgetState, Map<String, dynamic>> {
   WidgetPage()
       : super(
-            initState: initState,
-            effect: buildEffect(),
-            reducer: buildReducer(),
-            view: buildView,
-            dependencies: Dependencies<WidgetState>(
-                adapter: WidgetAdapter(),
-                slots: <String, Dependent<WidgetState>>{
-                }),
-            middleware: <Middleware<WidgetState>>[
-            ],);
-
+          initState: initState,
+          effect: buildEffect(),
+          reducer: buildReducer(),
+          view: buildView,
+          dependencies: Dependencies<WidgetState>(
+              adapter: WidgetAdapter(),
+              slots: <String, Dependent<WidgetState>>{}),
+          middleware: <Middleware<WidgetState>>[
+            logMiddleware(tag: "WidgetPage"),
+          ],
+        );
 }
+

@@ -11,7 +11,7 @@ Effect<HomeState> buildEffect() {
 }
 
 void _onAdd(Action action, Context<HomeState> ctx) {
-  var item = ItemState(title: "LN", subTitle: 'beauty');
+  var item = ItemState(title: "SomeOne", subTitle: 'beauty');
   ctx.dispatch(HomeActionCreator.onAddDone(item));
 }
 
