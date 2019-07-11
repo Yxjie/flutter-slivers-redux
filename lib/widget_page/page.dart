@@ -17,8 +17,16 @@ class WidgetPage extends Page<WidgetState, Map<String, dynamic>> {
               adapter: WidgetAdapter(),
               slots: <String, Dependent<WidgetState>>{}),
           middleware: <Middleware<WidgetState>>[
-            logMiddleware(tag: "WidgetPage"),
+            logMiddleware(tag: "WidgetPage", monitor: _monitor),
           ],
         );
 }
 
+///数据监听
+String _monitor(WidgetState state) {
+  if (state.widgetList == null) {
+    return "母鸡a。。。";
+  }
+  state.widgetList.forEach(print);
+  return state.widgetList.last.title;
+}
