@@ -18,7 +18,6 @@ void _loadMore(Action action, Context<WidgetState> ctx) {
     list.add(
         ItemState(title: "LoadMore Item$i", subTitle: "LoadMore subTitle:$i"));
   }
-
 }
 
 ///加载默认数据
@@ -32,7 +31,7 @@ void _init(Action action, Context<WidgetState> ctx) {
 }
 
 ///模拟网络请求
-Future<Null> _refresh(Action action, Context<WidgetState> ctx) async {
+void _refresh(Action action, Context<WidgetState> ctx) async {
   var list = <ItemState>[];
   for (int i = 0; i <= 10; i++) {
     list.add(
@@ -43,7 +42,5 @@ Future<Null> _refresh(Action action, Context<WidgetState> ctx) async {
     //通知reducer改变数据
     Toast.show("数据刷新成功", ctx.context);
     ctx.dispatch(WidgetActionCreator.onLoadDone(list));
-
   });
-  return null;
 }
