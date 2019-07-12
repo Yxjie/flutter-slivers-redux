@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 typedef VoidCallback = void Function();
 
@@ -22,12 +23,40 @@ class CommonUtil {
     }
   }
 
-  ///获取图片路径
-  imageSrc(String imgName) => 'images/$imgName';
-
   ///获取屏幕宽度
   screenWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
   ///获取屏幕高度
   screenHeight(BuildContext context) => MediaQuery.of(context).size.height;
+
+  ///获取图片路径
+  imageSrc(String imgName, {format = 'jpeg'}) => 'images/$imgName.$format';
+
+  _launchUrl(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  ///打开默认浏览器[apk包放的网页地址]
+  openDefaultWeb(String url) {
+    if (url.isEmpty) {
+      return;
+    }
+    if (!url.contains('http')) {
+      url = 'https://$url';
+    }
+    _launchUrl(url);
+  }
+
+  ///拨打电话
+  callPhone(String phoneNum) {
+    if (phoneNum.isEmpty) {
+      return;
+    }
+    final phone = 'tel:$phoneNum';
+    _launchUrl(phone);
+  }
 }

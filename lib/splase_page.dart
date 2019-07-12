@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_list_rdux/page/page.dart';
 import 'package:flutter_list_rdux/utils/navigator_util.dart';
 
 import 'main_page/page.dart';
 import 'utils/common_util.dart';
+import 'utils/package_util.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -11,10 +11,12 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+
   @override
   void initState() {
     _countDown();
     super.initState();
+    PackageUtil.init();
   }
 
   @override
@@ -27,7 +29,7 @@ class _SplashPageState extends State<SplashPage> {
       body: Stack(
         children: <Widget>[
           Image.asset(
-            CommonUtil.INSTANCE.imageSrc('ic.jpeg'),
+            CommonUtil.INSTANCE.imageSrc('ic'),
             width: screenWidth,
             height: screenHeight,
             fit: BoxFit.fill,

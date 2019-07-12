@@ -29,6 +29,8 @@ dependencies:
   flutter_swiper: ^1.1.6
   flutter_webview_plugin: ^0.3.5
   shared_preferences: ^0.5.3+2
+  url_launcher: ^5.0.5
+  package_info: ^0.4.0+3
 
 dev_dependencies:
   flutter_test:

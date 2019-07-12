@@ -1,5 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_list_rdux/component/state.dart';
+import 'package:flutter_list_rdux/utils/util_index.dart';
 import 'action.dart';
 import 'state.dart';
 
@@ -16,6 +17,10 @@ void _onAdd(Action action, Context<HomeState> ctx) {
 }
 
 void _init(Action action, Context<HomeState> ctx) {
+
+//  print("yxjie PackageInfo : ${PackageUtil.appName}");
+  DebugLogUtil.printLog(PackageUtil.appName,tag:'yxjie');
+
   final list = <ItemState>[
     ItemState(title: 'Kotlin', subTitle: 'Google'),
     ItemState(title: 'Dart', subTitle: 'Google'),

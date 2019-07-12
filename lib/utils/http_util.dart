@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:flutter_list_rdux/utils/util_index.dart';
 
 ///网络请求封装
 class HttpUtil {
@@ -27,9 +28,10 @@ class HttpUtil {
         req.headers['Accept'] = 'application/json;version=3.0;compress=false';
         return req;
       }, onResponse: (resp) {
+        DebugLogUtil.printLog(resp.data.toString(), tag: 'HttpUtil');
         return resp.data;
       }, onError: (error) {
-        print(error.toString());
+        DebugLogUtil.printLog('error:${error.toString()}', tag: 'HttpUtil');
       }));
 
     //设置证书
@@ -46,6 +48,7 @@ class HttpUtil {
       {Map<String, dynamic> queryParameters}) async {
     Response response =
         await _dio.get(urlPath, queryParameters: queryParameters);
+    DebugLogUtil.printHttp(response);
     return response.data;
   }
 
@@ -53,6 +56,7 @@ class HttpUtil {
   Future<Map<String, dynamic>> fetchPost(String urlPath,
       {Map<String, dynamic> params}) async {
     Response response = await _dio.post(urlPath, queryParameters: params);
+    DebugLogUtil.printHttp(response);
     return response.data;
   }
 
@@ -61,12 +65,14 @@ class HttpUtil {
       String urlPath, Map<String, dynamic> forms) async {
     final formData = FormData.from(forms);
     Response response = await _dio.post(urlPath, data: formData);
+    DebugLogUtil.printHttp(response);
     return response.data;
   }
 
   ///Download File
   fetchDownload(String urlPath, dynamic savePath) async {
     Response response = await _dio.download(urlPath, savePath);
+    DebugLogUtil.printHttp(response);
     return response.data;
   }
 }
