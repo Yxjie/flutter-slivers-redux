@@ -22,11 +22,12 @@ class CommonUtil {
     }
   }
 
+  ///获取图片路径
+  imageSrc(String imgName) => 'images/$imgName';
+
   ///获取屏幕宽度
   screenWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
   ///获取屏幕高度
   screenHeight(BuildContext context) => MediaQuery.of(context).size.height;
-
-
 }

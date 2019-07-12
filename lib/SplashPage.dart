@@ -27,7 +27,7 @@ class _SplashPageState extends State<SplashPage> {
       body: Stack(
         children: <Widget>[
           Image.asset(
-            'images/ic.jpeg',
+            CommonUtil.INSTANCE.imageSrc('ic.jpeg'),
             width: screenWidth,
             height: screenHeight,
             fit: BoxFit.fill,
