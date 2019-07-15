@@ -1,15 +1,11 @@
 import 'package:flutter_list_rdux/utils/util_index.dart';
 import 'package:package_info/package_info.dart';
 
-//todo 需要测试
 ///获取包信息 工具类
 class PackageUtil {
 
   static init() async {
-//    print('yxjie PackageUtil  init...');
-
     DebugLogUtil.printLog("PackageUtil  init...",tag: 'yxjie');
-
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
     appName = packageInfo.appName;
     packageName = packageInfo.packageName;

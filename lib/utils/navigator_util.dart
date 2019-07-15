@@ -11,7 +11,7 @@ class NavigatorUtil {
   static jumpReplacePage(BuildContext context, page) => Navigator.of(context)
       .pushReplacement(MaterialPageRoute(builder: (buildContext) => page));
 
-  //跳转界面并有返回值犯规
+  //跳转界面并有返回值返回
   static dynamic jumpPageGetData(BuildContext context, page) async =>
       await jumpPage(context, page);
 
