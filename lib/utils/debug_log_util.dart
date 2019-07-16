@@ -2,10 +2,11 @@ import 'package:dio/dio.dart';
 
 ///Debug 日志工具类
 class DebugLogUtil {
-  static final _isDebug = true;
+
+  static final isDebug = true;
 
   static printLog(String log, {tag = 'DebugUtil'}) {
-    if (_isDebug) {
+    if (isDebug) {
       print('$tag : $log');
     }
   }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_list_rdux/utils/navigator_util.dart';
+import 'package:flutter_list_rdux/utils/util_index.dart';
 
+import 'jpush/JpushManager.dart';
 import 'main_page/page.dart';
 import 'utils/common_util.dart';
-import 'utils/package_util.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -11,12 +12,15 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-
   @override
   void initState() {
     _countDown();
     super.initState();
+    //初始化PackageUtil
     PackageUtil.init();
+    //JPush申请权限 ios 适用
+    JPushManager.instance.applyJPushAuthorityIOS();
+    JPushManager.instance.setupAlias("yxjie");
   }
 
   @override

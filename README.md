@@ -34,11 +34,11 @@ samples, guidance on mobile development, and a full API reference.
 * ./utils/http_util.dart : 网络请求类，包括get，post,post表单请求，下载文件（未测试）
 * ./utils/navigator_util.dart : 界面跳转工具类 （路由表跳转方式未提供）
 * ./utils/package_utils.dart : 包工具类：packageInfo数据提供【versionName,versionCode,appName 等】
+* ./utils/share_preferences.dart: 数据保存
 
 
 ### Todo（学习研究）
 1.相关工具类使用方法 Demo 未提供
-1.sp_utils:数据持保存
 2.db : 数据库
 3.推送功能以及推送进来定义路由跳转方式
 4.地图定位
