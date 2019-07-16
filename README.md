@@ -22,6 +22,8 @@ samples, guidance on mobile development, and a full API reference.
 ## <font color=red>注：界面逻辑简单，单一列表页，不建议使用Fish Redux（个人建议后期在验证）</font>
 
 * ./images :图片resources
+
+* ./jpush : 极光工具类
 > res包下使用 直接在对应dart文件中 import '.../res_index.dart'
 * ./res/colors.dart :定义常用颜色
 * ./res/dimens.dart :定义常用的大小包括：字号以及padding，margin值
@@ -40,7 +42,7 @@ samples, guidance on mobile development, and a full API reference.
 ### Todo（学习研究）
 1.相关工具类使用方法 Demo 未提供
 2.db : 数据库
-3.推送功能以及推送进来定义路由跳转方式
+3.推送功能以及推送进来定义路由跳转方式（路由跳转有点问题）
 4.地图定位
 5.本项目考虑纯Flutter（混合开发工具类暂时不加）
 6.多渠道打包（不清楚怎么设置）
