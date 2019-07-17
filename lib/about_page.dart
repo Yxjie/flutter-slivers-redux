@@ -17,7 +17,8 @@ class _AboutPageState extends State<AboutPage> {
           ListTile(
             title: Text('MVP登录界面'),
             onTap: () => NavigatorUtil.jumpPage(context, LoginPage()),
-          )
+          ),
+          Divider(height: 0.1,)
         ],
       ),
     );
