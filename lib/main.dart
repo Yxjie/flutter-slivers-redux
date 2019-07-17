@@ -12,13 +12,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        //定义光标颜色
         cursorColor: Colors.deepOrange,
-        textTheme: TextTheme(
-          body1: TextStyle(
-            fontFamily: 'Barriecito',
-          )
-        )
-
+//        textTheme: TextTheme(
+//          body1: TextStyle(
+//            fontFamily: 'Barriecito',
+//          )
+//        )
       ),
       home: SplashPage(),
     );

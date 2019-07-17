@@ -30,6 +30,7 @@ samples, guidance on mobile development, and a full API reference.
 * ./res/colors.dart :定义常用颜色
 * ./res/dimens.dart :定义常用的大小包括：字号以及padding，margin值
 * ./res/strings.dart:字符串资源，项目中字符串引用最好从当中引用
+* ./res/fonts :加入特殊字体
 
 > utils包下 直接在对应dart文件中 import '.../util_index.dart'
 * ./utils/common_util.dart :定义常用工具（屏幕宽度，屏幕高度，图片资源引用方法，拨打电话以及打开设备默认浏览器方式）
