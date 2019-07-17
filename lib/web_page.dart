@@ -9,6 +9,7 @@ class WebViewPage extends StatefulWidget {
   String webUrl;
   bool showAppBar;
 
+
   WebViewPage({this.webUrl, this.showAppBar = true, Key key}) : super(key: key);
 
   @override
@@ -16,6 +17,9 @@ class WebViewPage extends StatefulWidget {
 }
 
 class _WebViewPageState extends State<WebViewPage> {
+
+  String webTitle="";
+
   final flutterWebViewPlugin = FlutterWebviewPlugin();
 
   // On urlChanged stream
@@ -44,6 +48,11 @@ class _WebViewPageState extends State<WebViewPage> {
     });
 
     _onUrlChanged = flutterWebViewPlugin.onUrlChanged.listen((String url) {
+      flutterWebViewPlugin.evalJavascript('window.document.title').then((title){
+        setState(() {
+          webTitle=title;
+        });
+      });
       print("onUrlChanged: $url");
     });
   }
@@ -62,7 +71,7 @@ class _WebViewPageState extends State<WebViewPage> {
     return WebviewScaffold(
         url: widget.webUrl,
         appBar: AppBar(
-          title: Text("WebView"),
+          title: Text(webTitle),
         ),
         withZoom: true,
         withLocalStorage: true,

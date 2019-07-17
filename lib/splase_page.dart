@@ -44,7 +44,7 @@ class _SplashPageState extends State<SplashPage> {
               right: 0,
               child: Center(
                 child: Text(
-                  "简单框架\n有点小桑不起！！！",
+                  "简单框架\n有点小桑不起",
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white, fontSize: 26),
                 ),

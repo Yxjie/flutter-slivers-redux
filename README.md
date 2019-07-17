@@ -15,11 +15,13 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
 
-### 项目基本结构
+### 项目基本结构(Fish Redux 以及 MVP方式)
 ##### 项目采用咸鱼Fish Redux框架，基于Flutter sdk 1.5.4 ,Redux版本：0.2.0 (最新版本：Flutter :1.7.8 Redux:0.2.4)
 
 ## <font color=red>注：每个界面定义一个对应类型page包，里面包含：effect，reducer，state,adapter,component.</font>
 ## <font color=red>注：界面逻辑简单，单一列表页，不建议使用Fish Redux（个人建议后期在验证）</font>
+
+## MVP框架在./lib/mvp 文件中，基础类base文件夹中，使用方法在login文件夹中
 
 * ./images :图片resources
 
