@@ -9,8 +9,7 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-
-  final textStyle=TextStyle(
+  final textStyle = TextStyle(
     fontFamily: 'Barriecito',
   );
 
@@ -19,13 +18,27 @@ class _AboutPageState extends State<AboutPage> {
     return Scaffold(
       body: ListView(
         children: <Widget>[
-          ListTile(
-            title: Text('MVP登录界面',style: textStyle,),
-            onTap: () => NavigatorUtil.jumpPage(context, LoginPage()),
-          ),
-          Divider(height: 0.1,)
+          _buildListItem('MVP登录界面', LoginPage()),
         ],
       ),
+    );
+  }
+
+  ///创建ListView item条目
+  _buildListItem(String title, page) {
+    return Column(
+      children: <Widget>[
+        ListTile(
+          title: Text(
+            title,
+            style: textStyle,
+          ),
+          onTap: () => NavigatorUtil.jumpPage(context, page),
+        ),
+        Divider(
+          height: 0.1,
+        )
+      ],
     );
   }
 }
