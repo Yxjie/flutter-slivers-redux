@@ -39,6 +39,8 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
 
 _buildScrollView(ListAdapter adapter, ViewService viewService) {
   return CustomScrollView(
+    controller: ScrollController(keepScrollOffset: true),
+    physics:ClampingScrollPhysics() ,
     slivers: <Widget>[
       SliverToBoxAdapter(
         child: Column(

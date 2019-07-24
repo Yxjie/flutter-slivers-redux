@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'demo/canvas_demo.dart';
 import 'mvp/login/login_page.dart';
 import 'utils/util_index.dart';
 
@@ -19,6 +20,7 @@ class _AboutPageState extends State<AboutPage> {
       body: ListView(
         children: <Widget>[
           _buildListItem('MVP登录界面', LoginPage()),
+          _buildListItem('Canvas使用', CustomPaintRoute()),
         ],
       ),
     );
