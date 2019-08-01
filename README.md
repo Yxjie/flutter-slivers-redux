@@ -40,6 +40,7 @@ samples, guidance on mobile development, and a full API reference.
 * ./utils/navigator_util.dart : 界面跳转工具类 （路由表跳转方式未提供）
 * ./utils/package_utils.dart : 包工具类：packageInfo数据提供【versionName,versionCode,appName 等】
 * ./utils/share_preferences.dart: 数据保存
+* ./utils/event_bus_util.dart : 事件总线
 
 
 ### Todo（学习研究）

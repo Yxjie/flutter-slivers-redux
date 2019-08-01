@@ -8,10 +8,10 @@ class CommonUtil {
   static CommonUtil _instance;
 
   static CommonUtil _getInstance() {
-    return _instance ?? CommonUtil._internal();
+    return _instance ??= CommonUtil._internal();
   }
 
-  static CommonUtil get INSTANCE => _getInstance();
+  static CommonUtil get instance => _getInstance();
 
   ///私有构造方法
   CommonUtil._internal();

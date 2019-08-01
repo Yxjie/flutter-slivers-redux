@@ -8,7 +8,7 @@ class CookieUtil {
 
   static CookieUtil _instance;
 
-  static CookieUtil _getInstance() => _instance ?? CookieUtil._internal();
+  static CookieUtil _getInstance() => _instance ??= CookieUtil._internal();
 
   ///获取去当前类对象
   static get INSTANCE => _getInstance();

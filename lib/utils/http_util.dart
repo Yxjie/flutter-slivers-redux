@@ -8,10 +8,10 @@ class HttpUtil {
 
   static HttpUtil _instance;
 
-  static HttpUtil _getInstance() => _instance ?? HttpUtil._internal();
+  static HttpUtil _getInstance() => _instance ??= HttpUtil._internal();
 
   //通过单列获取HttpUtil对象
-  static get INSTANCE => _getInstance();
+  static get instance => _getInstance();
 
   Dio _dio;
 

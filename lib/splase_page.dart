@@ -26,14 +26,14 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     //工具类 获取屏宽
-    double screenWidth = CommonUtil.INSTANCE.screenWidth(context);
+    double screenWidth = CommonUtil.instance.screenWidth(context);
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: Stack(
         children: <Widget>[
           Image.asset(
-            CommonUtil.INSTANCE.imageSrc('ic'),
+            CommonUtil.instance.imageSrc('ic'),
             width: screenWidth,
             height: screenHeight,
             fit: BoxFit.fill,
