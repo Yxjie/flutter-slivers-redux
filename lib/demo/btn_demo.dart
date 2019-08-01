@@ -38,7 +38,6 @@ class BtnPage extends StatelessWidget {
             ),
           ),
           
-          SwitchListTile(value: null, onChanged: null)
         ],
       ),
     );
