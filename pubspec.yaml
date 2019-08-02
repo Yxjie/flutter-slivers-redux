@@ -34,6 +34,7 @@ dependencies:
   jpush_flutter: 0.0.11
   # 屏幕适配
   flutter_screenutil: ^0.5.3
+  rxdart: ^0.22.1
 
 dev_dependencies:
   flutter_test:

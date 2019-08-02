@@ -1,10 +1,10 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:flutter_list_rdux/utils/api.dart';
 import 'package:flutter_list_rdux/utils/util_index.dart';
 
 ///网络请求封装
 class HttpUtil {
-  static final String baseUrl = "";
 
   static HttpUtil _instance;
 
@@ -19,7 +19,7 @@ class HttpUtil {
   HttpUtil._internal() {
     _dio = Dio();
     _dio
-      ..options.baseUrl = baseUrl
+      ..options.baseUrl = Api.baseUrl
       ..interceptors.add(InterceptorsWrapper(onRequest: (req) {
         //请求头添加
         req.headers['User-Agent'] =

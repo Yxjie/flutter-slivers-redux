@@ -49,7 +49,7 @@ samples, guidance on mobile development, and a full API reference.
 3.推送功能以及推送进来定义路由跳转方式（路由跳转有点问题）<br>
 4.地图定位<br>
 5.本项目考虑纯Flutter（混合开发工具类暂时不加）<br>
-6.多渠道打包（不清楚怎么设置）<br>
+6.多渠道打包<br>
 7.相册图片选择<br>
 
 
