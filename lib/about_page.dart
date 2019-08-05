@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_list_rdux/demo/future_build_demo.dart';
 
 import 'demo/btn_demo.dart';
 import 'demo/canvas_demo.dart';
@@ -25,6 +26,7 @@ class _AboutPageState extends State<AboutPage> {
           _buildListItem('Canvas使用', CustomPaintRoute()),
           _buildListItem('Btn 样式', BtnPage()),
           _buildListItem('Http测试 ', HttpTest()),
+          _buildListItem('FutureBuilder控件封装 ', FutureBuilderDemo()),
         ],
       ),
     );
