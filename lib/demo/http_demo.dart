@@ -38,6 +38,7 @@ class _HttpTestState extends State<HttpTest> {
   }
 
   _getData() {
+    Api.baseUrl='https://www.jianshu.com/';
     HttpUtil.instance.fetchGet(Api.userWeb).then((resp) {
       setState(() {
         result = resp.toString();
