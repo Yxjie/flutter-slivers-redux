@@ -45,7 +45,7 @@ samples, guidance on mobile development, and a full API reference.
 > 常用自定义控件
 * ./widgets/pop_scope_widget.dart : Android端点击两次物理按钮退出应用
 * ./widgets/future_builder_widget.dart : 通用网络请求界面，可定义错误展示界面，正常展示界面，网络加载界面，以及出错重新请求等
-
+* ./widgets/edit_text_widget.dart : 带有删除功能输入框封装
 
 ### Todo（学习研究）
 1.相关工具类使用方法 Demo 未提供<br>
