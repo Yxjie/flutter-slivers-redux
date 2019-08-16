@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_list_rdux/demo/future_build_demo.dart';
+import 'package:flutter_list_rdux/demo/sql_demo.dart';
 
 import 'demo/btn_demo.dart';
 import 'demo/canvas_demo.dart';
@@ -29,6 +30,7 @@ class _AboutPageState extends State<AboutPage> {
           _buildListItem('Http测试 ', HttpTest()),
           _buildListItem('FutureBuilder控件封装 ', FutureBuilderDemo()),
           _buildListItem('EditText控件 ', EditTxtDemo()),
+          _buildListItem('数据库使用 ', SQLDemo()),
         ],
       ),
     );
