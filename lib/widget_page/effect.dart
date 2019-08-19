@@ -33,7 +33,7 @@ void _init(Action action, Context<WidgetState> ctx) {
 ///模拟网络请求
 void _refresh(Action action, Context<WidgetState> ctx) async {
   var list = <ItemState>[];
-  for (int i = 0; i <= 10; i++) {
+  for (int i = 0; i <= 20; i++) {
     list.add(
         ItemState(title: "refresh item:$i", subTitle: "refresh subTitle:$i"));
   }

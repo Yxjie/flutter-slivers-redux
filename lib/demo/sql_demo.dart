@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_list_rdux/utils/util_index.dart';
-import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:toast/toast.dart';
 
 ///Flutter 数据库使用
