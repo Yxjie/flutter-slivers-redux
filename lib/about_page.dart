@@ -6,6 +6,7 @@ import 'demo/btn_demo.dart';
 import 'demo/canvas_demo.dart';
 import 'demo/edit_txt_demo.dart';
 import 'demo/http_demo.dart';
+import 'demo/share_data/test_inherited_widget.dart';
 import 'mvp/login/login_page.dart';
 import 'utils/util_index.dart';
 
@@ -31,6 +32,7 @@ class _AboutPageState extends State<AboutPage> {
           _buildListItem('FutureBuilder控件封装 ', FutureBuilderDemo()),
           _buildListItem('EditText控件 ', EditTxtDemo()),
           _buildListItem('数据库使用 ', SQLDemo()),
+          _buildListItem('[数据共享]InheritedWidget', TestInheritedWidget()),
         ],
       ),
     );

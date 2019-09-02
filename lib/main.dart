@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_list_rdux/splase_page.dart';
 import 'package:flutter_list_rdux/page/page.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  debugProfileBuildsEnabled=true;
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
