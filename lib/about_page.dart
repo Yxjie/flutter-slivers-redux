@@ -5,6 +5,7 @@ import 'package:flutter_list_rdux/demo/sql_demo.dart';
 import 'demo/btn_demo.dart';
 import 'demo/canvas_demo.dart';
 import 'demo/edit_txt_demo.dart';
+import 'demo/gesture_recognizer_demo.dart';
 import 'demo/http_demo.dart';
 import 'demo/share_data/test_inherited_widget.dart';
 import 'mvp/login/login_page.dart';
@@ -33,6 +34,7 @@ class _AboutPageState extends State<AboutPage> {
           _buildListItem('EditText控件 ', EditTxtDemo()),
           _buildListItem('数据库使用 ', SQLDemo()),
           _buildListItem('[数据共享]InheritedWidget', TestInheritedWidget()),
+          _buildListItem('GestureRecognizer使用', GestureRecognizerWidget()),
         ],
       ),
     );
