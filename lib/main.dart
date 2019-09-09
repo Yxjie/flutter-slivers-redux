@@ -1,9 +1,19 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_list_rdux/splase_page.dart';
 import 'package:flutter_list_rdux/page/page.dart';
 
 void main() {
-  debugProfileBuildsEnabled=true;
+  debugProfileBuildsEnabled = true;
+  //透明状态栏
+
+  if (Platform.isAndroid) {
+    final systemUiOverlayStyle =
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  }
   runApp(MyApp());
 }
 

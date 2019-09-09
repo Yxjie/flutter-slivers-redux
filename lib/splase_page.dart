@@ -11,7 +11,7 @@ class SplashPage extends StatefulWidget {
   State<StatefulWidget> createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage> {
+class _SplashPageState extends State<SplashPage> with AutomaticKeepAliveClientMixin {
   @override
   void initState() {
     _countDown();
@@ -64,4 +64,8 @@ class _SplashPageState extends State<SplashPage> {
 //              builder: (buildContext) => HomePage().buildPage(null)));
     });
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => null;
 }

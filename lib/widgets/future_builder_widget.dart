@@ -22,7 +22,6 @@ class FutureBuilderWidget<T> extends StatefulWidget {
 
 class _FutureBuilderWidgetState<T> extends State<FutureBuilderWidget<T>>
     with ErrorCallback {
-
   @override
   void initState() {
     super.initState();
@@ -79,13 +78,16 @@ class _FutureBuilderWidgetState<T> extends State<FutureBuilderWidget<T>>
         });
   }
 
-
   @override
   void retryCall() {
     widget.loadData(context);
-    setState(() {
-      ///重新构建界面需要
-    });
+
+    if (mounted) {
+      //mounted :判断当前页面是否存在
+      setState(() {
+        ///重新构建界面需要
+      });
+    }
   }
 }
 
