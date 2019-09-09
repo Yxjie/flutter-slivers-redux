@@ -67,5 +67,5 @@ class _SplashPageState extends State<SplashPage> with AutomaticKeepAliveClientMi
 
   @override
   // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => null;
+  bool get wantKeepAlive => false;
 }

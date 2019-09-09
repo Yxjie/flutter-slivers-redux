@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_list_rdux/demo/animator/ScaleAnimationRoute.dart';
 import 'package:flutter_list_rdux/demo/future_build_demo.dart';
 import 'package:flutter_list_rdux/demo/sql_demo.dart';
 
@@ -35,6 +36,7 @@ class _AboutPageState extends State<AboutPage> {
           _buildListItem('数据库使用 ', SQLDemo()),
           _buildListItem('[数据共享]InheritedWidget', TestInheritedWidget()),
           _buildListItem('GestureRecognizer使用', GestureRecognizerWidget()),
+          _buildListItem('动画', ScaleAnimationRoute()),
         ],
       ),
     );
