@@ -13,7 +13,6 @@ Effect<ItemState> buildEffect() {
 
 void _onJumpDetail(Action action, Context<ItemState> ctx) {
 //  Navigator.of(ctx.context).push(MaterialPageRoute(builder: (buildContext)=>DetailPage().buildPage({'item':ctx.state})));
-
 //  Navigator.push(ctx.context, MaterialPageRoute(builder: (buildContext) {
 //    return DetailPage().buildPage({'item': ctx.state});
 //  }));
