@@ -2,7 +2,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_list_rdux/detail_page/page.dart';
 import 'package:flutter_list_rdux/utils/navigator_util.dart';
 import 'action.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Action;
 import 'state.dart';
 
 Effect<ItemState> buildEffect() {

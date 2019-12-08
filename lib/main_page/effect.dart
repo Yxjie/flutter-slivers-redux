@@ -1,5 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Action;
 import 'package:flutter_list_rdux/page/page.dart';
 import 'package:flutter_list_rdux/store_page/page.dart';
 import 'package:flutter_list_rdux/widget_page/page.dart';

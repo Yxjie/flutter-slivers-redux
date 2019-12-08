@@ -15,7 +15,7 @@ class HomePage extends Page<HomeState, Map<String, dynamic>> {
           reducer: buildReducer(),
           view: buildView,
           dependencies: Dependencies<HomeState>(
-              adapter: ItemAdapter(),
+              adapter:NoneConn<HomeState>() +  ItemAdapter(),
               slots: <String, Dependent<HomeState>>{
                 'header': HeaderConnector() + HeaderComponent(),
               }),
