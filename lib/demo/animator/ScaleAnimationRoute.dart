@@ -1,4 +1,5 @@
 import 'package:flutter/animation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_list_rdux/utils/util_index.dart';
 
@@ -59,7 +60,7 @@ class _ScaleAnimationRouteState extends State<ScaleAnimationRoute>
               ],
             ),
             Image.asset(
-              CommonUtil.instance.imageSrc('ic'),
+              CommonUtil.instance.imageSrc('girl'),
               width: animation.value,
               height: animation.value * 2,
             )

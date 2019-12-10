@@ -44,6 +44,7 @@ class _FutureBuilderWidgetState<T> extends State<FutureBuilderWidget<T>>
   Widget build(BuildContext context) {
     return FutureBuilder(
         future: widget.loadData(context),
+        // ignore: missing_return
         builder: (BuildContext context, AsyncSnapshot<T> snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
