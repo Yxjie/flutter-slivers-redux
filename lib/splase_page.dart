@@ -18,7 +18,6 @@ class _SplashPageState extends State<SplashPage> with AutomaticKeepAliveClientMi
   void initState() {
     _countDown();
     super.initState();
-
     //初始化PackageUtil
     PackageUtil.init();
     //JPush申请权限 ios 适用
