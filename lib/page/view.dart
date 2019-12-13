@@ -1,5 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_list_rdux/utils/util_index.dart';
 
 import 'action.dart';
 import 'state.dart';
@@ -62,7 +63,7 @@ _buildScrollView(ListAdapter adapter, ViewService viewService) {
 
       SliverPersistentHeader(
           delegate: __SliverAppBarDelegate(
-              child: Image.asset('images/ic.jpeg',fit: BoxFit.cover,),
+              child: Image.asset(CommonUtil.instance.imageSrc('ic'),fit: BoxFit.cover,),
               maxHeight: 180,
               minHeight: 60)),
 

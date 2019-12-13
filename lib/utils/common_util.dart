@@ -30,7 +30,7 @@ class CommonUtil {
   screenHeight(BuildContext context) => MediaQuery.of(context).size.height;
 
   ///获取图片路径
-  imageSrc(String imgName, {format = 'jpeg'}) => 'images/$imgName.$format';
+  imageSrc(String imgName, {format = 'jpeg'}) => 'assets/images/$imgName.$format';
 
   _launchUrl(String url) async {
     if (await canLaunch(url)) {
