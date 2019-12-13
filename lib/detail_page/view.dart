@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_list_rdux/utils/util_index.dart';
 import 'action.dart';
 import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
@@ -50,7 +51,7 @@ Widget buildView(
           expandedHeight: 220,
           flexibleSpace: FlexibleSpaceBar(
             background: Image.asset(
-              'images/ic.jpeg',
+              CommonUtil.instance.imageSrc('ic'),
               fit: BoxFit.fitWidth,
             ),
           ),
@@ -60,7 +61,7 @@ Widget buildView(
         ),
 //        SliverFixedExtentList(
 //            delegate: SliverChildListDelegate(
-//              state.list.map((str) => _buildItem(str)).toList(),
+//              state.list.map((str) => _buildItem(e)).toList(),
 //            ),
 //            itemExtent: 50),
 

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_list_rdux/utils/navigator_util.dart';
 import 'package:flutter_list_rdux/utils/util_index.dart';
@@ -16,6 +18,7 @@ class _SplashPageState extends State<SplashPage> with AutomaticKeepAliveClientMi
   void initState() {
     _countDown();
     super.initState();
+
     //初始化PackageUtil
     PackageUtil.init();
     //JPush申请权限 ios 适用
@@ -44,7 +47,7 @@ class _SplashPageState extends State<SplashPage> with AutomaticKeepAliveClientMi
               right: 0,
               child: Center(
                 child: Text(
-                  "简单框架\n有点小桑不起",
+                  "简单小框架",
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white, fontSize: 26),
                 ),

@@ -25,6 +25,10 @@ class _AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("测试工具代码"),
+        centerTitle: true,
+      ),
       body: ListView(
         children: <Widget>[
           _buildListItem('MVP登录界面', LoginPage()),
