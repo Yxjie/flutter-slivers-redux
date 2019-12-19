@@ -74,8 +74,8 @@ class RoundShapeTest extends StatelessWidget {
                           backgroundColor: Colors.amberAccent,child: Icon(Icons.error,color: Colors.red,),
                         ),),
 
-                        Chip(label: Text('恶心死你们！！！'),avatar: CircleAvatar(
-                          backgroundColor: Colors.amberAccent,child: Icon(Icons.error,color: Colors.red,),
+                        Chip(label: Text('控件都懒得写！！！'),avatar: CircleAvatar(
+                          backgroundColor: Colors.amberAccent,child: Icon(Icons.adb,color: Colors.red,),
                         ),),
 
                       ],
