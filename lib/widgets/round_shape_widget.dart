@@ -8,8 +8,6 @@ class RoundShapeWidget extends StatelessWidget {
   final Widget child;
   final ShapeWidget shapeWidget; //Widget展示类型
   final double radius; //圆角大小
-  final double width;
-  final double height;
   final VoidCallback clickCallback; //点击事件
 
   RoundShapeWidget({
@@ -17,8 +15,6 @@ class RoundShapeWidget extends StatelessWidget {
     @required this.shapeWidget,
     this.clickCallback,
     this.radius = 16.0,
-    this.width = 60.0,
-    this.height = 60.0,
   })  : assert(child != null),
         assert(shapeWidget != null);
 
@@ -27,22 +23,14 @@ class RoundShapeWidget extends StatelessWidget {
     return ShapeWidget.Circle == shapeWidget
         ? GestureDetector(
             child: ClipOval(
-              child: SizedBox(
-                width: width,
-                height: height,
-                child: child,
-              ),
+              child: child,
             ),
             onTap: clickCallback,
           )
         : GestureDetector(
             child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(radius)),
-              child: SizedBox(
-                width: width,
-                height: height,
-                child: child,
-              ),
+              child: child,
             ),
             onTap: clickCallback,
           );

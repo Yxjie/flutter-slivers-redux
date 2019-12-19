@@ -19,33 +19,69 @@ class RoundShapeTest extends StatelessWidget {
                     child: Image.asset(
                       CommonUtil.instance.imageSrc('ic'),
                       fit: BoxFit.cover,
+                      width: 60,
+                      height: 60,
                     ),
                     shapeWidget: ShapeWidget.Circle),
                 RoundShapeWidget(
                     child: Image.asset(
                       CommonUtil.instance.imageSrc('girl'),
                       fit: BoxFit.cover,
+                      width: 120,
+                      height: 120,
                     ),
-                    width: 120,
-                    height: 120,
                     shapeWidget: ShapeWidget.Circle),
                 RoundShapeWidget(
                     child: Image.asset(
                       CommonUtil.instance.imageSrc('girl'),
                       fit: BoxFit.cover,
+                      width: 130,
+                      height: 130,
                     ),
-                    width: 130,
-                    height: 130,
                     shapeWidget: ShapeWidget.RoundRect),
                 RoundShapeWidget(
                     child: Image.asset(
                       CommonUtil.instance.imageSrc('ic'),
                       fit: BoxFit.cover,
+                      width: 160,
+                      height: 130,
                     ),
                     radius: 50,
-                    width: 160,
-                    height: 130,
                     shapeWidget: ShapeWidget.RoundRect),
+                RoundShapeWidget(
+                  radius: 10.0,
+                  shapeWidget: ShapeWidget.RoundRect,
+                  child:Container(
+                    color: Colors.blueGrey,
+                    child:  Wrap(
+                      alignment: WrapAlignment.center,
+                      spacing: 8,
+                      runSpacing: 4,
+                      children: <Widget>[
+                          Chip(label: Text('Yxjie 真好看!'),avatar: CircleAvatar(
+                            backgroundColor: Colors.amberAccent,child: Text('Y'),
+                          ),),
+
+                        Chip(label: Text('Yxjie 真帅！！'),avatar: CircleAvatar(
+                          backgroundColor: Colors.amberAccent,child: Text('X'),
+                        ),),
+
+                        Chip(label: Text('Yxjie 帅得无法无天！！！'),avatar: CircleAvatar(
+                          backgroundColor: Colors.amberAccent,child: Text('J'),
+                        ),),
+
+                        Chip(label: Text('恶心死你们！'),avatar: CircleAvatar(
+                          backgroundColor: Colors.amberAccent,child: Icon(Icons.error,color: Colors.red,),
+                        ),),
+
+                        Chip(label: Text('恶心死你们！！！'),avatar: CircleAvatar(
+                          backgroundColor: Colors.amberAccent,child: Icon(Icons.error,color: Colors.red,),
+                        ),),
+
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
           ),
