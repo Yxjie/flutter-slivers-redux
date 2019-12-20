@@ -8,6 +8,7 @@ import 'demo/canvas_demo.dart';
 import 'demo/edit_txt_demo.dart';
 import 'demo/gesture_recognizer_demo.dart';
 import 'demo/http_demo.dart';
+import 'demo/round_path_test.dart';
 import 'demo/round_shape_test.dart';
 import 'demo/share_data/test_inherited_widget.dart';
 import 'mvp/login/login_page.dart';
@@ -43,6 +44,7 @@ class _AboutPageState extends State<AboutPage> {
           _buildListItem('GestureRecognizer使用', GestureRecognizerWidget()),
           _buildListItem('动画', ScaleAnimationRoute()),
           _buildListItem('带有圆角控件', RoundShapeTest()),
+          _buildListItem('支持各种圆角布局样式Widget', RoundPathTest()),
         ],
       ),
     );
