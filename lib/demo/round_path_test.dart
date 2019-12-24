@@ -70,6 +70,7 @@ class RoundPathTest extends StatelessWidget {
                 rightTopRadius: 15,
                 rightBottomRadius: 15,
                 child:Container(
+                  padding: const EdgeInsets.all(3),
                   width: 300,
                   color: Colors.blue,
                   child:  Row(

@@ -3,12 +3,14 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_list_rdux/splase_page.dart';
+import 'package:flutter_list_rdux/utils/util_index.dart';
 
 void main() {
   debugProfileBuildsEnabled = true;
   //app只能竖屏模式
-  SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  CommonUtil.instance.screenOrientation(ScreenOrientation.Portrait);
+//  SystemChrome.setPreferredOrientations(
+//      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   //透明状态栏
   if (Platform.isAndroid) {
     final systemUiOverlayStyle =

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 typedef VoidCallback = void Function();
@@ -29,8 +30,19 @@ class CommonUtil {
   ///获取屏幕高度
   screenHeight(BuildContext context) => MediaQuery.of(context).size.height;
 
+  ///设置屏幕方向
+  screenOrientation(ScreenOrientation orientation) =>
+      SystemChrome.setPreferredOrientations(
+          ScreenOrientation.Portrait == orientation
+              ? [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]
+              : [
+                  DeviceOrientation.landscapeLeft,
+                  DeviceOrientation.landscapeRight
+                ]);
+
   ///获取图片路径
-  imageSrc(String imgName, {format = 'jpeg'}) => 'assets/images/$imgName.$format';
+  imageSrc(String imgName, {format = 'jpeg'}) =>
+      'assets/images/$imgName.$format';
 
   _launchUrl(String url) async {
     if (await canLaunch(url)) {
@@ -60,3 +72,6 @@ class CommonUtil {
     _launchUrl(phone);
   }
 }
+
+///屏幕方向 枚举
+enum ScreenOrientation { Portrait, Landscape }
