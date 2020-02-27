@@ -75,3 +75,4 @@ class CommonUtil {
 
 ///屏幕方向 枚举
 enum ScreenOrientation { Portrait, Landscape }
+

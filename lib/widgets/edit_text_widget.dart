@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 ///带有删除 功能输入框
+// ignore: must_be_immutable
 class EditTextWidget extends StatefulWidget {
   final String hintTxt; //默认提示文案
   final String labelTxt;
