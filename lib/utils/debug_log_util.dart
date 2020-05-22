@@ -13,8 +13,8 @@ class DebugLogUtil {
 
   ///打印 网络回调信息
   static printHttp(Response response) {
-    DebugLogUtil.printLog('http request:${response.request.method}',
-        tag: 'HttpUtil');
+//    DebugLogUtil.printLog('http request:${response.request.method}',
+//        tag: 'HttpUtil');
     DebugLogUtil.printLog('http statusCode:${response.statusCode}',
         tag: 'HttpUtil');
     DebugLogUtil.printLog('http statusMessage:${response.statusMessage}',

@@ -2,13 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_list_rdux/utils/cookie_util.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:flutter_list_rdux/utils/util_index.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
-///
 class WebViewPage extends StatefulWidget {
   String webUrl;
   bool showAppBar;
-
 
   WebViewPage({this.webUrl, this.showAppBar = true, Key key}) : super(key: key);
 
@@ -17,18 +16,7 @@ class WebViewPage extends StatefulWidget {
 }
 
 class _WebViewPageState extends State<WebViewPage> {
-
-  String webTitle="";
-
-  final flutterWebViewPlugin = FlutterWebviewPlugin();
-
-  // On urlChanged stream
-  StreamSubscription<WebViewStateChanged> _onStateChanged;
-
-  StreamSubscription<WebViewHttpError> _onHttpError;
-
-  // On urlChanged stream
-  StreamSubscription<String> _onUrlChanged;
+  String webTitle = "";
 
   @override
   void initState() {
@@ -36,65 +24,62 @@ class _WebViewPageState extends State<WebViewPage> {
     if (widget.webUrl == null) {
       widget.webUrl = "http://www.baidu.com";
     }
-    //flutterWebViewPlugin 监听想要监听内容
-    _onStateChanged =
-        flutterWebViewPlugin.onStateChanged.listen((WebViewStateChanged state) {
-      print('onStateChanged: ${state.type} ${state.url}');
-    });
-
-    _onHttpError =
-        flutterWebViewPlugin.onHttpError.listen((WebViewHttpError error) {
-      print("onHttpError: ${error.code} ${error.url}");
-    });
-
-    _onUrlChanged = flutterWebViewPlugin.onUrlChanged.listen((String url) {
-      flutterWebViewPlugin.evalJavascript('window.document.title').then((title){
-        setState(() {
-          webTitle=title;
-        });
-      });
-      print("onUrlChanged: $url");
-    });
   }
 
   @override
   void dispose() {
     super.dispose();
-    _onStateChanged?.cancel();
-    _onHttpError?.cancel();
-    _onUrlChanged?.cancel();
-    flutterWebViewPlugin.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return WebviewScaffold(
-        url: widget.webUrl,
-        appBar: AppBar(
-          title: Text(webTitle),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(webTitle),
+      ),
+      body: Builder(
+        builder: (context) => WebView(
+          initialUrl: widget.webUrl,
+          javascriptMode: JavascriptMode.unrestricted,
+          javascriptChannels: <JavascriptChannel>[
+            _toasterJavascriptChannel(context), //js调用Flutter端方法
+          ].toSet(),
+
+          navigationDelegate: (NavigationRequest request) {
+            //对不符合条件跳转进行过滤
+            if (!request.url.startsWith('http')) {
+              DebugLogUtil.printLog("blocking navigation to $request",
+                  tag: 'web_view');
+              return NavigationDecision.prevent;
+            }
+
+            DebugLogUtil.printLog("allowing navigation to $request",
+                tag: 'web_view');
+            return NavigationDecision.navigate;
+          },
+
+          //界面开始加载
+          onPageStarted: (String url) {
+            DebugLogUtil.printLog("Page started loading: $url",
+                tag: 'web_view');
+          },
+          //界面加载结束
+          onPageFinished: (String url) {
+            DebugLogUtil.printLog("Page finished loading: $url",
+                tag: 'web_view');
+          },
         ),
-        withZoom: true,
-        withLocalStorage: true,
-//        //默认就是有加载圆环提示
-//        initialChild: Container(
-//          child: Center(
-//            child: CircularProgressIndicator(),
-//          ),
-//        ),
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-            children: <Widget>[
-              IconButton(
-                  icon: Icon(Icons.arrow_back_ios),
-                  onPressed: () => flutterWebViewPlugin.goBack()),
-              IconButton(
-                  icon: Icon(Icons.arrow_forward_ios),
-                  onPressed: () => flutterWebViewPlugin.goForward()),
-              IconButton(
-                  icon: Icon(Icons.autorenew),
-                  onPressed: () => flutterWebViewPlugin.reload()),
-            ],
-          ),
-        ));
+      ),
+    );
+  }
+
+  JavascriptChannel _toasterJavascriptChannel(BuildContext context) {
+    return JavascriptChannel(
+        name: 'Toaster',
+        onMessageReceived: (JavascriptMessage message) {
+          Scaffold.of(context).showSnackBar(
+            SnackBar(content: Text(message.message)),
+          );
+        });
   }
 }

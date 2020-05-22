@@ -14,7 +14,9 @@ Effect<StoreState> buildEffect() {
 ///跳转Web
 void _jumpWeb(Action action, Context<StoreState> ctx){
   final web="https://www.jianshu.com/u/4348c255f36d";
+//  final web="https://www.baidu.com";
 //  NavigatorUtil.jumpWeb(ctx.context, web);
+
   NavigatorUtil.jumpWeb(ctx.context, web);
 
 }
