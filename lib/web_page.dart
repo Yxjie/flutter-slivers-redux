@@ -5,6 +5,7 @@ import 'package:flutter_list_rdux/utils/util_index.dart';
 import 'package:toast/toast.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+///基于flutter_webview对WebView封装
 class WebViewPage extends StatefulWidget {
   final String webUrl;
   final bool showAppBar;
@@ -24,6 +25,7 @@ class WebViewPage extends StatefulWidget {
 class _WebViewPageState extends State<WebViewPage> {
   String webUrl = "";
 
+  //WebView控制器
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
 
@@ -34,11 +36,6 @@ class _WebViewPageState extends State<WebViewPage> {
     if (webUrl == null) {
       webUrl = "http://www.baidu.com";
     }
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 
   @override
@@ -61,7 +58,8 @@ class _WebViewPageState extends State<WebViewPage> {
             _controller.complete(webViewController);
           },
           javascriptChannels: <JavascriptChannel>[
-            _toasterJavascriptChannel(context), //js调用Flutter端方法
+            //todo js调用Flutter端方法
+            _toasterJavascriptChannel(context),
           ].toSet(),
 
           navigationDelegate: (NavigationRequest request) {
