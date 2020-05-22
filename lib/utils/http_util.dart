@@ -6,17 +6,46 @@ import 'package:flutter_list_rdux/utils/util_index.dart';
 
 ///网络请求封装
 class HttpUtil {
-  static HttpUtil _instance;
-  static HttpUtil _getInstance() => _instance ??= HttpUtil._internal();
+  static HttpUtil _instance = HttpUtil._internal();
+//  static HttpUtil _getInstance() => _instance ??= HttpUtil._internal();
   //通过单列获取HttpUtil对象
-  static get instance => _getInstance();
+//  static get instance => _getInstance();
+
+  factory HttpUtil()=>_instance;
+
+  static HttpUtil getInstance({String baseUrl}) {
+    if (baseUrl == null) {
+      return _instance._normal();
+    } else {
+      return _instance._baseUrl(baseUrl);
+    }
+  }
+
+  ///用于指定特定域名，比如cdn和kline首次的http请求
+  HttpUtil _baseUrl(String baseUrl) {
+    if (_dio != null) {
+      _dio.options.baseUrl = baseUrl;
+    }
+    return this;
+  }
+
+  ///一般请求，默认域名
+  HttpUtil _normal() {
+    if (_dio != null) {
+      if (_dio.options.baseUrl != Api.baseUrl) {
+        _dio.options.baseUrl = Api.baseUrl;
+      }
+    }
+    return this;
+  }
+
   Dio _dio;
 
   ///私有构造方法
   HttpUtil._internal() {
     _dio = Dio();
     _dio
-      ..options.baseUrl = Api.baseUrl
+//      ..options.baseUrl = Api.baseUrl
       ..interceptors.add(InterceptorsWrapper(onRequest: (req) async {
         //请求头添加
         req.headers['User-Agent'] =

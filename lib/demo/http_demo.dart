@@ -37,7 +37,7 @@ class _HttpTestState extends State<HttpTest> {
             widthFactor: 1,
             child: RaisedButton(
               onPressed: (){
-                HttpUtil.instance.cancelRequests(_cancelToken);
+                HttpUtil.getInstance().cancelRequests(_cancelToken);
               },
               child: Text('请求取消'),
             ),
@@ -50,7 +50,7 @@ class _HttpTestState extends State<HttpTest> {
   }
 
   _getData() {
-    HttpUtil.instance.fetchGet(Api.userWeb,cancelToken:_cancelToken).then((resp) {
+    HttpUtil.getInstance().fetchGet(Api.userWeb,cancelToken:_cancelToken).then((resp) {
       setState(() {
         result = resp.toString();
       });

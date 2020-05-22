@@ -29,8 +29,8 @@ class _FutureBuilderState extends State<FutureBuilderDemo> with ErrorCallback{
   }
 
  Future<CommonModel> _loadData(BuildContext context) async {
-    Api.baseUrl = 'http://www.devio.org/io/flutter_app/';
-    final resp = await HttpUtil.instance.fetchGet('json/test_common_model.json');
+    String baseUrl = 'http://www.devio.org/io/flutter_app/';
+    final resp = await HttpUtil.getInstance(baseUrl: baseUrl).fetchGet('json/test_common_model.json');
     return CommonModel.fromJson(resp);
   }
 
