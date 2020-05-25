@@ -12,6 +12,7 @@ class JPushManager {
 
   JPushManager._() {
     _jPush = JPush();
+
     _jPush.setup(
         appKey: _appKey,
         production: false,
@@ -23,17 +24,22 @@ class JPushManager {
       DebugLogUtil.printLog("Flutter registrationId : $rid", tag: _tag);
     });
 
+    //通知授权是否打开
+    isNotifyOpened();
+
     //推送回调
     _jPush.addEventHandler(onReceiveMessage: (Map<String, dynamic> msg) async {
-      //接收通知回调方法
+      //接收自定义消息回调方法
+      //todo 可创建本地通知
       DebugLogUtil.printLog("Flutter onReceiveMessage : $msg", tag: _tag);
-      sendLocalNotification(msg);
+//      sendLocalNotification(msg);
     }, onOpenNotification: (Map<String, dynamic> msg) async {
       //点击通知回调方法
+      //todo 点击跳转对应界面
       DebugLogUtil.printLog("Flutter onOpenNotification : $msg", tag: _tag);
-      openAppByNotify();
+//      openAppByNotify();
     }, onReceiveNotification: (Map<String, dynamic> msg) async {
-      //接收自定义消息回调方法
+      //接收通知回调方法 msg['message']
       DebugLogUtil.printLog("Flutter onReceiveNotification : $msg", tag: _tag);
     });
   }
@@ -88,24 +94,39 @@ class JPushManager {
     _jPush.stopPush();
   }
 
-  /// 自定义消息处理逻辑
+  ///打开系统设置
+  openSystemSetting() {
+    _jPush.openSettingsForNotification();
+  }
+
+  isNotifyOpened() {
+    _jPush.isNotificationEnabled().then((value) {
+      if (!value) {
+        openSystemSetting();
+      }
+    }).catchError((error) {
+      DebugLogUtil.printLog('Jpush error : $error', tag: _tag);
+    });
+  }
+
+  /// 本地推送
   /// 样式{"title":"","des":""}
-  sendLocalNotification(Map<String, dynamic> map) {
+  sendLocalNotification(Map<String,dynamic> extraMap) {
     var fireDate = DateTime.fromMillisecondsSinceEpoch(
         DateTime.now().millisecondsSinceEpoch + 3000);
     final id = 5506;
     final title = "yxjie";
     final des = '无穷般若心自在，语默动静以自然。';
     var localNotification = LocalNotification(
-        id: id,
-        buildId: 1,
-        title: title,
-        content: des,
-        subtitle: "",
-        badge: 0,
-        fireTime: fireDate,
-        extras: {"fa": "0"} //extras 需要是 Map<String, String>
-        );
+      id: id,
+      buildId: 1,// 1 为基础样式，2 为自定义样式
+      title: title,
+      content: des,
+      subtitle: "",
+      extra: extraMap,
+      badge: 0, //应用边上小红点，目前只支持华为手机
+      fireTime: fireDate,
+    );
     _jPush.sendLocalNotification(localNotification).then((res) {
       DebugLogUtil.printLog("Flutter sendLocalNotification : $res", tag: _tag);
     }, onError: (error) {
@@ -114,9 +135,13 @@ class JPushManager {
   }
 
   ///点击推送启动应用的那条通知 [仅支持ios]
-  openAppByNotify(){
-    _jPush.getLaunchAppNotification().then((map){
-      DebugLogUtil.printLog("Flutter openAppByNotify : ${map.toString()}",tag: _tag);
+  openAppByNotify() {
+    _jPush.getLaunchAppNotification().then((map) {
+      DebugLogUtil.printLog("Flutter openAppByNotify : ${map.toString()}",
+          tag: _tag);
+    }).catchError((error) {
+      DebugLogUtil.printLog("Flutter openAppByNotify : ${error.toString()}",
+          tag: _tag);
     });
   }
 }

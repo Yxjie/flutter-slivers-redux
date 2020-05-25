@@ -2,10 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_list_rdux/jpush/JpushManager.dart';
 import 'package:flutter_list_rdux/splase_page.dart';
 import 'package:flutter_list_rdux/utils/util_index.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
   debugProfileBuildsEnabled = true;
   //app只能竖屏模式
   CommonUtil.instance.screenOrientation(ScreenOrientation.Portrait);
@@ -16,6 +18,13 @@ void main() {
     final systemUiOverlayStyle =
         SystemUiOverlayStyle(statusBarColor: Colors.transparent);
     SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  }
+  //JPush init
+  JPushManager.instance.setupAlias('Yxjie');
+
+  if(Platform.isIOS){
+    // ignore: unnecessary_statements
+    JPushManager.instance.applyJPushAuthorityIOS;
   }
   runApp(MyApp());
 }
