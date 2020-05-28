@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_list_rdux/utils/util_index.dart';
+import 'package:flutter_list_rdux/widgets/font_marquee_widget.dart';
 import 'package:flutter_list_rdux/widgets/round_path_widget.dart';
 
 class RoundPathTest extends StatelessWidget {
+  final List<String> strList = ['支持圆形', '支持圆角矩形', '支持不同角的矩形', '看起来不还不错！！！'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,6 +16,13 @@ class RoundPathTest extends StatelessWidget {
         child: Center(
           child: Column(
             children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: FontMarqueeWidget(
+                  strList,
+                  seconds: 2,
+                ),
+              ),
               RoundPathWidget(
                 child: Image.asset(
                   CommonUtil.instance.imageSrc('girl'),
@@ -69,15 +79,18 @@ class RoundPathTest extends StatelessWidget {
                 pathShape: PathShapeEnum.PartRoundRect,
                 rightTopRadius: 15,
                 rightBottomRadius: 15,
-                child:Container(
+                child: Container(
                   padding: const EdgeInsets.all(3),
                   width: 300,
                   color: Colors.blue,
-                  child:  Row(
+                  child: Row(
                     children: <Widget>[
-                      Expanded(child: Column(
+                      Expanded(
+                          child: Column(
                         children: <Widget>[
-                          Center(child: Text("测试多种布局"),),
+                          Center(
+                            child: Text("测试多种布局"),
+                          ),
                           Text('支持不同角，不同圆弧大小')
                         ],
                       )),
