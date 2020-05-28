@@ -20,6 +20,8 @@ void _init(Action action, Context<HomeState> ctx) {
 
 //  print("yxjie PackageInfo : ${PackageUtil.appName}");
   DebugLogUtil.printLog(PackageUtil.appName,tag:'yxjie');
+  DebugLogUtil.printLog("version = ${PackageUtil.version}",tag:'yxjie');
+  DebugLogUtil.printLog("versionCode = ${PackageUtil.versionCode}",tag:'yxjie');
 
   final list = <ItemState>[
     ItemState(title: 'Kotlin', subTitle: 'Google'),

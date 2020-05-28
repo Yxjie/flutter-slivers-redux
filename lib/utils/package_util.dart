@@ -10,7 +10,7 @@ class PackageUtil {
     appName = packageInfo.appName;
     packageName = packageInfo.packageName;
     version = packageInfo.version;
-    version = packageInfo.buildNumber;
+    versionCode = packageInfo.buildNumber;
   }
 
   ///获取 应用名
