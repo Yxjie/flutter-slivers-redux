@@ -39,6 +39,10 @@ dependencies:
   sqflite: ^1.1.6+3
   #webview插件
   webview_flutter: ^0.3.22+1
+  #打开安装包进入安装页面
+  open_file: ^3.0.1
+  #配置安装包下载路径
+  path_provider: ^1.6.9
 
 dev_dependencies:
   flutter_test:

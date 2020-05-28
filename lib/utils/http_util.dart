@@ -7,11 +7,12 @@ import 'package:flutter_list_rdux/utils/util_index.dart';
 ///网络请求封装
 class HttpUtil {
   static HttpUtil _instance = HttpUtil._internal();
+
 //  static HttpUtil _getInstance() => _instance ??= HttpUtil._internal();
   //通过单列获取HttpUtil对象
 //  static get instance => _getInstance();
 
-  factory HttpUtil()=>_instance;
+  factory HttpUtil() => _instance;
 
   static HttpUtil getInstance({String baseUrl}) {
     if (baseUrl == null) {
@@ -118,9 +119,9 @@ class HttpUtil {
 
   ///Download File
   fetchDownload(String urlPath, dynamic savePath,
-      {CancelToken cancelToken}) async {
-    Response response =
-        await _dio.download(urlPath, savePath, cancelToken: cancelToken);
+      {CancelToken cancelToken, ProgressCallback onReceiveProgress}) async {
+    Response response = await _dio.download(urlPath, savePath,
+        cancelToken: cancelToken, onReceiveProgress: onReceiveProgress);
 //    DebugLogUtil.printHttp(response);
     return response.data;
   }

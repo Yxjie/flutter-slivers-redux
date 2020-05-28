@@ -9,6 +9,7 @@ import 'demo/edit_txt_demo.dart';
 import 'demo/gesture_recognizer_demo.dart';
 import 'demo/http_demo.dart';
 import 'demo/jpush_test.dart';
+import 'demo/path_provider_demo.dart';
 import 'demo/round_path_test.dart';
 import 'demo/round_shape_test.dart';
 import 'demo/share_data/test_inherited_widget.dart';
@@ -47,6 +48,7 @@ class _AboutPageState extends State<AboutPage> {
           _buildListItem('带有圆角控件', RoundShapeTest()),
           _buildListItem('支持各种圆角布局样式Widget', RoundPathTest()),
           _buildListItem('JPush测试', JPushTestWidget()),
+          _buildListItem('Path Provider测试', PathProviderPage()),
         ],
       ),
     );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_list_rdux/utils/debug_log_util.dart';
+import 'package:open_file/open_file.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 typedef VoidCallback = void Function();
@@ -71,8 +73,13 @@ class CommonUtil {
     final phone = 'tel:$phoneNum';
     _launchUrl(phone);
   }
+
+  ///打开某个文件or 安装apk
+  Future<OpenResult> openFile(String filePath) async {
+    return await OpenFile.open(filePath).catchError(
+        (e) => DebugLogUtil.printLog('openFile error : $e', tag: 'CommonUtil'));
+  }
 }
 
 ///屏幕方向 枚举
 enum ScreenOrientation { Portrait, Landscape }
-

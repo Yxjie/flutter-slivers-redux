@@ -1,5 +1,6 @@
 import 'package:flutter_list_rdux/utils/util_index.dart';
 import 'package:jpush_flutter/jpush_flutter.dart';
+import 'package:toast/toast.dart';
 
 ///文档：https://github.com/jpush/jpush-flutter-plugin/blob/master/documents/APIs.md
 ///JPush推送工具类
@@ -99,6 +100,7 @@ class JPushManager {
     _jPush.openSettingsForNotification();
   }
 
+  ///判断用户是否打开通知
   isNotifyOpened() {
     _jPush.isNotificationEnabled().then((value) {
       if (!value) {
@@ -109,9 +111,9 @@ class JPushManager {
     });
   }
 
-  /// 本地推送
+  /// 发送本地推送
   /// 样式{"title":"","des":""}
-  sendLocalNotification(Map<String,dynamic> extraMap) {
+  sendLocalNotification(Map<String, dynamic> extraMap) {
     var fireDate = DateTime.fromMillisecondsSinceEpoch(
         DateTime.now().millisecondsSinceEpoch + 3000);
     final id = 5506;
@@ -119,12 +121,14 @@ class JPushManager {
     final des = '无穷般若心自在，语默动静以自然。';
     var localNotification = LocalNotification(
       id: id,
-      buildId: 1,// 1 为基础样式，2 为自定义样式
+      buildId: 1,
+      // 1 为基础样式，2 为自定义样式
       title: title,
       content: des,
       subtitle: "",
       extra: extraMap,
-      badge: 0, //应用边上小红点，目前只支持华为手机
+      badge: 0,
+      //应用边上小红点，目前只支持华为手机
       fireTime: fireDate,
     );
     _jPush.sendLocalNotification(localNotification).then((res) {
