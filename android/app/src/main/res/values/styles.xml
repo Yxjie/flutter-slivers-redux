@@ -4,5 +4,7 @@
         <!-- Show a splash screen on the activity. Automatically removed when
              Flutter draws its first frame -->
         <item name="android:windowBackground">@drawable/launch_background</item>
+        <!-- 启动时状态栏状态是否透明-->
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 </resources>
