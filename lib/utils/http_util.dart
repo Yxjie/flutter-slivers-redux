@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter_list_rdux/utils/api.dart';
 import 'package:flutter_list_rdux/utils/util_index.dart';
 
@@ -26,6 +27,8 @@ class HttpUtil {
   HttpUtil _baseUrl(String baseUrl) {
     if (_dio != null) {
       _dio.options.baseUrl = baseUrl;
+      // 添加缓存
+      _dio.interceptors.add(DioCacheManager(CacheConfig()).interceptor);
     }
     return this;
   }
@@ -35,6 +38,8 @@ class HttpUtil {
     if (_dio != null) {
       if (_dio.options.baseUrl != Api.baseUrl) {
         _dio.options.baseUrl = Api.baseUrl;
+        // 添加缓存
+        _dio.interceptors.add(DioCacheManager(CacheConfig()).interceptor);
       }
     }
     return this;
@@ -61,7 +66,6 @@ class HttpUtil {
       }, onError: (DioError error) async {
         _formatError(error);
       }));
-
     //设置证书
     (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
         (client) {
@@ -92,7 +96,9 @@ class HttpUtil {
   Future<Map<String, dynamic>> fetchGet(String urlPath,
       {Map<String, dynamic> queryParameters, CancelToken cancelToken}) async {
     Response response = await _dio.get(urlPath,
-        queryParameters: queryParameters, cancelToken: cancelToken);
+        options: buildCacheOptions(Duration(days: 3)),
+        queryParameters: queryParameters,
+        cancelToken: cancelToken);
 //    DebugLogUtil.printHttp(response);
     return response.data;
   }
@@ -101,7 +107,9 @@ class HttpUtil {
   Future<Map<String, dynamic>> fetchPost(String urlPath,
       {Map<String, dynamic> params, CancelToken cancelToken}) async {
     Response response = await _dio.post(urlPath,
-        queryParameters: params, cancelToken: cancelToken);
+        options: buildCacheOptions(Duration(days: 3)),
+        queryParameters: params,
+        cancelToken: cancelToken);
 //    DebugLogUtil.printHttp(response);
     return response.data;
   }
@@ -111,8 +119,10 @@ class HttpUtil {
       String urlPath, Map<String, dynamic> forms,
       {CancelToken cancelToken}) async {
     final formData = FormData.fromMap(forms);
-    Response response =
-        await _dio.post(urlPath, data: formData, cancelToken: cancelToken);
+    Response response = await _dio.post(urlPath,
+        options: buildCacheOptions(Duration(days: 3)),
+        data: formData,
+        cancelToken: cancelToken);
 //    DebugLogUtil.printHttp(response);
     return response.data;
   }

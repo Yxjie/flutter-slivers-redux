@@ -9,6 +9,7 @@ import 'demo/edit_txt_demo.dart';
 import 'demo/gesture_recognizer_demo.dart';
 import 'demo/http_demo.dart';
 import 'demo/jpush_test.dart';
+import 'demo/json_convert/json_date_test.dart';
 import 'demo/path_provider_demo.dart';
 import 'demo/round_path_test.dart';
 import 'demo/round_shape_test.dart';
@@ -38,6 +39,7 @@ class _AboutPageState extends State<AboutPage> {
           _buildListItem('MVP登录界面', LoginPage()),
           _buildListItem('Canvas使用', CustomPaintRoute()),
           _buildListItem('Btn 样式', BtnPage()),
+          _buildListItem('三方插件数据解析', JsonDataTest()),
           _buildListItem('Http测试 ', HttpTest()),
           _buildListItem('FutureBuilder控件封装 ', FutureBuilderDemo()),
           _buildListItem('EditText控件 ', EditTxtDemo()),
