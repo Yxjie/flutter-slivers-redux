@@ -5,6 +5,7 @@ import 'package:flutter_list_rdux/demo/sql_demo.dart';
 
 import 'demo/btn_demo.dart';
 import 'demo/canvas_demo.dart';
+import 'demo/drawing_board_demo.dart';
 import 'demo/edit_txt_demo.dart';
 import 'demo/gesture_recognizer_demo.dart';
 import 'demo/http_demo.dart';
@@ -51,6 +52,7 @@ class _AboutPageState extends State<AboutPage> {
           _buildListItem('支持各种圆角布局样式Widget', RoundPathTest()),
           _buildListItem('JPush测试', JPushTestWidget()),
           _buildListItem('Path Provider测试', PathProviderPage()),
+          _buildListItem('画板Demo', DrawingBoardPage()),
         ],
       ),
     );
