@@ -6,6 +6,8 @@ import 'package:flutter_list_rdux/jpush/JpushManager.dart';
 import 'package:flutter_list_rdux/splase_page.dart';
 import 'package:flutter_list_rdux/utils/util_index.dart';
 
+import 'utils/app_route.dart';
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   debugProfileBuildsEnabled = true;
@@ -29,7 +31,10 @@ void main() async{
   runApp(MyApp());
 }
 
+
+
 class MyApp extends StatelessWidget {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -45,7 +50,10 @@ class MyApp extends StatelessWidget {
 //          )
 //        )
       ),
-      home: SplashPage(),
+      initialRoute: '/',
+      routes: AppRoute.routes,
+      onGenerateRoute: AppRoute.onGenerateRoute,
+//      home: SplashPage(),
     );
   }
 }
