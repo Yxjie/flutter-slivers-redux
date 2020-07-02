@@ -29,7 +29,22 @@ class AppRoute {
         return route;
       }
     }
-    //todo 定义一个空白界面
-    return MaterialPageRoute(builder: (context) => null);
+    //定义一个空白界面
+    return MaterialPageRoute(builder: (context) => NotFoundPage());
   };
+}
+
+///空白页
+class NotFoundPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text(
+          'Not Found Page',
+          style: TextStyle(color: Colors.red),
+        ),
+      ),
+    );
+  }
 }
