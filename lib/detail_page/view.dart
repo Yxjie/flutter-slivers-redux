@@ -18,15 +18,15 @@ Widget buildView(
           actions: <Widget>[
             PopupMenuButton(
               itemBuilder: (BuildContext context) => <PopupMenuItem<String>>[
-                    PopupMenuItem<String>(
-                      child: Text("热度"),
-                      value: "hot",
-                    ),
-                    PopupMenuItem<String>(
-                      child: Text("最新"),
-                      value: "new",
-                    ),
-                  ],
+                PopupMenuItem<String>(
+                  child: Text("热度"),
+                  value: "hot",
+                ),
+                PopupMenuItem<String>(
+                  child: Text("最新"),
+                  value: "new",
+                ),
+              ],
               onSelected: (String action) {
                 switch (action) {
                   case "hot":
@@ -99,8 +99,8 @@ Widget _buildGridItem(title) {
       border: Border.all(color: Colors.deepOrange, width: 0.5),
     ),
     padding: const EdgeInsets.all(15),
-    child:Center(
-      child:  Column(
+    child: Center(
+      child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Icon(

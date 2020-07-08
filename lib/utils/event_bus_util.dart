@@ -1,5 +1,5 @@
 ///事件总线
-typedef void EventCallback(arg);
+typedef EventCallback = void Function(dynamic arg);
 
 class EventBusUtil {
   Map<Object, List<EventCallback>> _eventMap;

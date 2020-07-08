@@ -16,7 +16,6 @@ void _onJumpDetail(Action action, Context<ItemState> ctx) {
 //  Navigator.push(ctx.context, MaterialPageRoute(builder: (buildContext) {
 //    return DetailPage().buildPage({'item': ctx.state});
 //  }));
-  NavigatorUtil.jumpPage(ctx.context, DetailPage().buildPage({'item': ctx.state}));
-
-
+  NavigatorUtil.jumpPage(
+      ctx.context, DetailPage().buildPage({'item': ctx.state}));
 }

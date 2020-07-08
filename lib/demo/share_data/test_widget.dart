@@ -11,13 +11,13 @@ class TestWidget extends StatefulWidget {
 class _TestWidgetState extends State<TestWidget> {
   @override
   Widget build(BuildContext context) {
-    DebugLogUtil.printLog('build ...',tag: 'TestWidget');
+    DebugLogUtil.printLog('build ...', tag: 'TestWidget');
     return Text(ShareDataWidget.of(context).count.toString());
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    DebugLogUtil.printLog('Dependencies changed',tag: 'TestWidget');
+    DebugLogUtil.printLog('Dependencies changed', tag: 'TestWidget');
   }
 }

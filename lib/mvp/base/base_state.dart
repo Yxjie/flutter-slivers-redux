@@ -23,7 +23,6 @@ abstract class BaseState<T extends StatefulWidget, V extends IBaseView,
     loadData();
   }
 
-
   @override
   void showLoading() {
     setState(() {
@@ -34,7 +33,7 @@ abstract class BaseState<T extends StatefulWidget, V extends IBaseView,
   @override
   void hideLoading() {
     setState(() {
-      isLoading=false;
+      isLoading = false;
     });
   }
 
@@ -46,9 +45,9 @@ abstract class BaseState<T extends StatefulWidget, V extends IBaseView,
   @override
   void dispose() {
     super.dispose();
-    if(presenter !=null){
+    if (presenter != null) {
       presenter.onDetachView();
-      presenter=null;
+      presenter = null;
     }
   }
 }

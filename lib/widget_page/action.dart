@@ -14,7 +14,7 @@ class WidgetActionCreator {
     return const Action(WidgetAction.loadMore);
   }
 
-  static Action onLoadMoreDone(List<ItemState> list){
-    return Action(WidgetAction.loadMoreDone,payload: list);
+  static Action onLoadMoreDone(List<ItemState> list) {
+    return Action(WidgetAction.loadMoreDone, payload: list);
   }
 }

@@ -19,5 +19,8 @@ class NavigatorUtil {
   static jumpWeb(BuildContext context, String webUrl) => Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (buildContext) => WebViewPage(webUrl: webUrl,webTitle: '简书',)));
+          builder: (buildContext) => WebViewPage(
+                webUrl: webUrl,
+                webTitle: '简书',
+              )));
 }

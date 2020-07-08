@@ -8,7 +8,7 @@ import 'package:flutter_list_rdux/utils/util_index.dart';
 
 import 'utils/app_route.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   debugProfileBuildsEnabled = true;
   //app只能竖屏模式
@@ -24,17 +24,14 @@ void main() async{
   //JPush init
   JPushManager.instance.setupAlias('Yxjie');
 
-  if(Platform.isIOS){
+  if (Platform.isIOS) {
     // ignore: unnecessary_statements
     JPushManager.instance.applyJPushAuthorityIOS;
   }
   runApp(MyApp());
 }
 
-
-
 class MyApp extends StatelessWidget {
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

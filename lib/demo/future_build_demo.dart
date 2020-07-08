@@ -8,7 +8,7 @@ class FutureBuilderDemo extends StatefulWidget {
   State<StatefulWidget> createState() => _FutureBuilderState();
 }
 
-class _FutureBuilderState extends State<FutureBuilderDemo> with ErrorCallback{
+class _FutureBuilderState extends State<FutureBuilderDemo> with ErrorCallback {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,9 +28,10 @@ class _FutureBuilderState extends State<FutureBuilderDemo> with ErrorCallback{
     );
   }
 
- Future<CommonModel> _loadData(BuildContext context) async {
+  Future<CommonModel> _loadData(BuildContext context) async {
     String baseUrl = 'http://www.devio.org/io/flutter_app/';
-    final resp = await HttpUtil.getInstance(baseUrl: baseUrl).fetchGet('json/test_common_model.json');
+    final resp = await HttpUtil.getInstance(baseUrl: baseUrl)
+        .fetchGet('json/test_common_model.json');
     return CommonModel.fromJson(resp);
   }
 

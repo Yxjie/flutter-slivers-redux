@@ -47,6 +47,15 @@ samples, guidance on mobile development, and a full API reference.
 * ./widgets/future_builder_widget.dart : 通用网络请求界面，可定义错误展示界面，正常展示界面，网络加载界面，以及出错重新请求等
 * ./widgets/edit_text_widget.dart : 带有删除功能输入框封装
 
+### 代码美化
+```
+dartfmt -w --fix lib/
+```
+### 代码规范检查
+```
+dartanalyzer lib
+```
+
 ### Todo（学习研究）
 1.相关工具类使用方法 Demo 未提供<br>
 2.db : 数据库（finish！！！）<br>

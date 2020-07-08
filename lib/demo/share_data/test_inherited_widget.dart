@@ -16,7 +16,6 @@ class _TestInheritedWidgetState extends State<TestInheritedWidget> {
       appBar: AppBar(
         title: Text("[数据共享]InheritedWidget"),
       ),
-
       body: Center(
         child: ShareDataWidget(
           count: count,

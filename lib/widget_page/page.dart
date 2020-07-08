@@ -14,7 +14,7 @@ class WidgetPage extends Page<WidgetState, Map<String, dynamic>> {
           reducer: buildReducer(),
           view: buildView,
           dependencies: Dependencies<WidgetState>(
-              adapter:NoneConn<WidgetState>()+ WidgetAdapter(),
+              adapter: NoneConn<WidgetState>() + WidgetAdapter(),
               slots: <String, Dependent<WidgetState>>{}),
           middleware: <Middleware<WidgetState>>[
             logMiddleware(tag: "WidgetPage", monitor: _monitor),

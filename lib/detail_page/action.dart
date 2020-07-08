@@ -1,7 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 
 //TODO replace with your own action
-enum DetailAction { loadData, loadDone ,changeStyle}
+enum DetailAction { loadData, loadDone, changeStyle }
 
 class DetailActionCreator {
   static Action onLoadData() {
@@ -11,5 +11,6 @@ class DetailActionCreator {
   static Action onLoadDone(List<String> list) =>
       Action(DetailAction.loadDone, payload: list);
 
-  static Action onChangeStyle(bool isSelected)=> Action(DetailAction.changeStyle,payload: isSelected);
+  static Action onChangeStyle(bool isSelected) =>
+      Action(DetailAction.changeStyle, payload: isSelected);
 }

@@ -3,14 +3,14 @@ import 'package:flutter_list_rdux/component/state.dart';
 
 class DetailState implements Cloneable<DetailState> {
   ItemState itemState;
-  bool showList=true;
+  bool showList = true;
   List<String> list;
 
   @override
   DetailState clone() {
     return DetailState()
       ..itemState = itemState
-      ..showList=showList
+      ..showList = showList
       ..list = list;
   }
 }

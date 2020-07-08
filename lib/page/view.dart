@@ -41,7 +41,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
 _buildScrollView(ListAdapter adapter, ViewService viewService) {
   return CustomScrollView(
     controller: ScrollController(keepScrollOffset: true),
-    physics:ClampingScrollPhysics() ,
+    physics: ClampingScrollPhysics(),
     slivers: <Widget>[
       SliverToBoxAdapter(
         child: Column(
@@ -60,13 +60,14 @@ _buildScrollView(ListAdapter adapter, ViewService viewService) {
           ],
         ),
       ),
-
       SliverPersistentHeader(
           delegate: __SliverAppBarDelegate(
-              child: Image.asset(CommonUtil.instance.imageSrc('ic'),fit: BoxFit.cover,),
+              child: Image.asset(
+                CommonUtil.instance.imageSrc('ic'),
+                fit: BoxFit.cover,
+              ),
               maxHeight: 180,
               minHeight: 60)),
-
       SliverFixedExtentList(
           delegate: SliverChildBuilderDelegate(adapter.itemBuilder,
               childCount: adapter.itemCount),

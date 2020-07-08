@@ -27,13 +27,13 @@ class _WidgetConnector extends ConnOp<WidgetState, List<ItemBean>> {
 
   @override
   void set(WidgetState state, List<ItemBean> items) {
-
-    if(items.isNotEmpty){
+    if (items.isNotEmpty) {
 //      state.widgetList=items.map((itemBean)=> itemBean.data).toList();
 
-    state.widgetList=List<ItemState>.from(items.map((itemBean)=> itemBean.data).toList());
-    }else{
-      state.widgetList=<ItemState>[];
+      state.widgetList =
+          List<ItemState>.from(items.map((itemBean) => itemBean.data).toList());
+    } else {
+      state.widgetList = <ItemState>[];
     }
   }
 

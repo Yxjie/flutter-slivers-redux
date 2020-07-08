@@ -51,33 +51,54 @@ class RoundShapeTest extends StatelessWidget {
                 RoundShapeWidget(
                   radius: 10.0,
                   shapeWidget: ShapeWidget.RoundRect,
-                  child:Container(
+                  child: Container(
                     color: Colors.blueGrey,
-                    child:  Wrap(
+                    child: Wrap(
                       alignment: WrapAlignment.center,
                       spacing: 8,
                       runSpacing: 4,
                       children: <Widget>[
-                          Chip(label: Text('Yxjie 真好看!'),avatar: CircleAvatar(
-                            backgroundColor: Colors.amberAccent,child: Text('Y'),
-                          ),),
-
-                        Chip(label: Text('Yxjie 真帅！！'),avatar: CircleAvatar(
-                          backgroundColor: Colors.amberAccent,child: Text('X'),
-                        ),),
-
-                        Chip(label: Text('Yxjie 帅得无法无天！！！'),avatar: CircleAvatar(
-                          backgroundColor: Colors.amberAccent,child: Text('J'),
-                        ),),
-
-                        Chip(label: Text('恶心死你们！'),avatar: CircleAvatar(
-                          backgroundColor: Colors.amberAccent,child: Icon(Icons.error,color: Colors.red,),
-                        ),),
-
-                        Chip(label: Text('控件都懒得写！！！'),avatar: CircleAvatar(
-                          backgroundColor: Colors.amberAccent,child: Icon(Icons.adb,color: Colors.red,),
-                        ),),
-
+                        Chip(
+                          label: Text('Yxjie 真好看!'),
+                          avatar: CircleAvatar(
+                            backgroundColor: Colors.amberAccent,
+                            child: Text('Y'),
+                          ),
+                        ),
+                        Chip(
+                          label: Text('Yxjie 真帅！！'),
+                          avatar: CircleAvatar(
+                            backgroundColor: Colors.amberAccent,
+                            child: Text('X'),
+                          ),
+                        ),
+                        Chip(
+                          label: Text('Yxjie 帅得无法无天！！！'),
+                          avatar: CircleAvatar(
+                            backgroundColor: Colors.amberAccent,
+                            child: Text('J'),
+                          ),
+                        ),
+                        Chip(
+                          label: Text('恶心死你们！'),
+                          avatar: CircleAvatar(
+                            backgroundColor: Colors.amberAccent,
+                            child: Icon(
+                              Icons.error,
+                              color: Colors.red,
+                            ),
+                          ),
+                        ),
+                        Chip(
+                          label: Text('控件都懒得写！！！'),
+                          avatar: CircleAvatar(
+                            backgroundColor: Colors.amberAccent,
+                            child: Icon(
+                              Icons.adb,
+                              color: Colors.red,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),

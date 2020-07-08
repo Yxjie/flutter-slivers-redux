@@ -10,7 +10,7 @@ class EditTextWidget extends StatefulWidget {
   final bool focus; //是否获取焦点
   final bool enable; //是否被禁用
   final int maxLines; //最大行数
-  final ChangedListener listener;//监听输入框变量改变
+  final ChangedListener listener; //监听输入框变量改变
   TextEditingController _controller;
 
   EditTextWidget(

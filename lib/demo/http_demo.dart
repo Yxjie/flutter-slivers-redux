@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_list_rdux/utils/util_index.dart';
 import 'package:dio/dio.dart';
+
 class HttpTest extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _HttpTestState();
@@ -8,7 +9,7 @@ class HttpTest extends StatefulWidget {
 
 class _HttpTestState extends State<HttpTest> {
   var result = '';
-  CancelToken _cancelToken=CancelToken();
+  CancelToken _cancelToken = CancelToken();
 
   @override
   Widget build(BuildContext context) {
@@ -32,17 +33,15 @@ class _HttpTestState extends State<HttpTest> {
               child: Text('发起get请求'),
             ),
           ),
-
           FractionallySizedBox(
             widthFactor: 1,
             child: RaisedButton(
-              onPressed: (){
+              onPressed: () {
                 HttpUtil.getInstance().cancelRequests(_cancelToken);
               },
               child: Text('请求取消'),
             ),
           ),
-
           Text('返回数据：$result')
         ],
       ),
@@ -50,7 +49,9 @@ class _HttpTestState extends State<HttpTest> {
   }
 
   _getData() {
-    HttpUtil.getInstance().fetchGet(Api.userWeb,cancelToken:_cancelToken).then((resp) {
+    HttpUtil.getInstance()
+        .fetchGet(Api.userWeb, cancelToken: _cancelToken)
+        .then((resp) {
       setState(() {
         result = resp.toString();
       });

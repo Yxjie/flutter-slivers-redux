@@ -4,14 +4,12 @@ import 'package:flutter_list_rdux/widgets/edit_text_widget.dart';
 class EditTxtDemo extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _EditTxtState();
-
 }
 
-class _EditTxtState extends State<EditTxtDemo>{
+class _EditTxtState extends State<EditTxtDemo> {
   @override
   Widget build(BuildContext context) {
-
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text("EditText测试Demo"),
       ),
@@ -37,5 +35,4 @@ class _EditTxtState extends State<EditTxtDemo>{
     hintTxt: '请输入姓名',
     defaultTxt: 'Yxjie',
   );
-
 }

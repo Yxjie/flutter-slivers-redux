@@ -65,7 +65,8 @@ class RoundPathClipper extends CustomClipper<Path> {
     if (PathShapeEnum.CirclePath == pathShape) {
       path.addOval(Rect.fromLTRB(0, 0, width, height));
     } else if (PathShapeEnum.RoundRect == pathShape) {
-      path.addRRect(RRect.fromRectAndRadius(Rect.fromLTWH(0, 0, width, height), Radius.circular(radius)));
+      path.addRRect(RRect.fromRectAndRadius(
+          Rect.fromLTWH(0, 0, width, height), Radius.circular(radius)));
     } else {
       final leftTopRect =
           Rect.fromLTRB(0, 0, leftTopRadius * 2, leftTopRadius * 2);

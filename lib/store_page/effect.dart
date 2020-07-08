@@ -7,18 +7,17 @@ import 'state.dart';
 Effect<StoreState> buildEffect() {
   return combineEffects(<Object, Effect<StoreState>>{
     Lifecycle.initState: _init,
-    StoreAction.jumpWeb:_jumpWeb,
+    StoreAction.jumpWeb: _jumpWeb,
   });
 }
 
 ///跳转Web
-void _jumpWeb(Action action, Context<StoreState> ctx){
-  final web="https://www.jianshu.com/u/4348c255f36d";
+void _jumpWeb(Action action, Context<StoreState> ctx) {
+  final web = "https://www.jianshu.com/u/4348c255f36d";
 //  final web="https://www.baidu.com";
 //  NavigatorUtil.jumpWeb(ctx.context, web);
 
   NavigatorUtil.jumpWeb(ctx.context, web);
-
 }
 
 ///构建默认数据
@@ -33,4 +32,3 @@ void _init(Action action, Context<StoreState> ctx) {
   ];
   ctx.dispatch(StoreActionCreator.onInitDone(choices));
 }
-

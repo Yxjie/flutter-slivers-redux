@@ -24,18 +24,18 @@ Widget buildView(StoreState state, Dispatch dispatch, ViewService viewService) {
         ),
         body: TabBarView(
             children: state.choices
-                .map((value) => _buildCard(value.title, value.icon,dispatch))
+                .map((value) => _buildCard(value.title, value.icon, dispatch))
                 .toList()),
       ));
 }
 
-Widget _buildCard(String title, IconData icon,Dispatch dispatch) {
+Widget _buildCard(String title, IconData icon, Dispatch dispatch) {
   return Card(
     color: Colors.white,
     child: Center(
-      child:GestureDetector(
-        onTap: ()=> dispatch(StoreActionCreator.onJumpWeb()),
-        child:  Column(
+      child: GestureDetector(
+        onTap: () => dispatch(StoreActionCreator.onJumpWeb()),
+        child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Icon(

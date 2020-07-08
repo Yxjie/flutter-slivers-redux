@@ -24,10 +24,9 @@ class _JPushTestState extends State<JPushTestWidget> {
             RaisedButton(
                 child: Text('发送本地消息'),
                 onPressed: () {
-                  const extraMap={'ff':'貌似是这么这么用的'};
+                  const extraMap = {'ff': '貌似是这么这么用的'};
                   JPushManager.instance.sendLocalNotification(extraMap);
-                }
-            ),
+                }),
             RaisedButton(
                 child: Text('getLaunchAppNotification'),
                 onPressed: () => JPushManager.instance.openAppByNotify())

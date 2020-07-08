@@ -58,7 +58,7 @@ class _MyPainter extends CustomPainter {
         paint);
 
     //画白字
-    paint.color=Colors.white;
+    paint.color = Colors.white;
     canvas.drawCircle(
         Offset((size.width + eWidth) / 2, (size.height + eHeight) / 2),
         min(eWidth / 2, eHeight / 2) - 2,

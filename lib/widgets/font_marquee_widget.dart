@@ -14,7 +14,7 @@ class FontMarqueeWidget extends StatefulWidget {
 }
 
 class FontMarqueeState extends State<FontMarqueeWidget> {
-  GlobalKey _myKey = new GlobalKey();
+  GlobalKey _myKey = GlobalKey();
   ScrollController _controller;
   Timer _timer;
   int index = 0;
@@ -31,10 +31,10 @@ class FontMarqueeState extends State<FontMarqueeWidget> {
     //来监听 节点是否build完成
     WidgetsBinding widgetsBinding = WidgetsBinding.instance;
     widgetsBinding.addPostFrameCallback((callback) {
-      _timer = Timer.periodic(new Duration(seconds: widget.seconds), (timer) {
+      _timer = Timer.periodic(Duration(seconds: widget.seconds), (timer) {
         index += _myKey.currentContext.size.height.toInt();
         _controller.animateTo((index).toDouble(),
-            duration: new Duration(seconds: 2), curve: Curves.easeOutSine);
+            duration: Duration(seconds: 2), curve: Curves.easeOutSine);
         //滚动到底部从头开始
         if ((index - _myKey.currentContext.size.height.toInt()).toDouble() >
             _controller.position.maxScrollExtent) {
@@ -43,7 +43,7 @@ class FontMarqueeState extends State<FontMarqueeWidget> {
         }
       });
     });
-    _controller = new ScrollController(initialScrollOffset: 0);
+    _controller = ScrollController(initialScrollOffset: 0);
     super.initState();
   }
 
@@ -54,7 +54,7 @@ class FontMarqueeState extends State<FontMarqueeWidget> {
       child: ListView.builder(
           key: _myKey,
           //禁止手动滑动
-          physics: new NeverScrollableScrollPhysics(),
+          physics: NeverScrollableScrollPhysics(),
           itemCount: widget.strList.length ?? 0,
           //item固定高度
           itemExtent: 17,

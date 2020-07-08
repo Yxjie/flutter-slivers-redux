@@ -8,22 +8,21 @@ Reducer<WidgetState> buildReducer() {
   return asReducer(
     <Object, Reducer<WidgetState>>{
       WidgetAction.loadDone: _onLoadDone,
-      WidgetAction.loadMoreDone:_onLoadMoreDone,
+      WidgetAction.loadMoreDone: _onLoadMoreDone,
     },
   );
 }
 
 WidgetState _onLoadMoreDone(WidgetState state, Action action) {
   final WidgetState newState = state.clone();
-  final list=action.payload??<ItemState>[];
+  final list = action.payload ?? <ItemState>[];
   newState.widgetList.addAll(list);
   return newState;
 }
 
-
 WidgetState _onLoadDone(WidgetState state, Action action) {
   final WidgetState newState = state.clone();
-  final list=action.payload??<ItemState>[];
-  newState.widgetList=list;
+  final list = action.payload ?? <ItemState>[];
+  newState.widgetList = list;
   return newState;
 }

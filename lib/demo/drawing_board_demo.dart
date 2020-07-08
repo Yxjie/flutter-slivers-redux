@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 ///画板
 class DrawingBoardPage extends StatefulWidget {
   @override
@@ -64,7 +65,7 @@ class DrawingBoardPainter extends CustomPainter {
           _path.lineTo(list[i].dx, list[i].dy);
         }
       }
-      canvas.drawPath( _path, _paint);
+      canvas.drawPath(_path, _paint);
     });
   }
 

@@ -110,5 +110,4 @@ class SPUtil {
     if (_beforeCheck()) return null;
     return _sp.clear();
   }
-
 }

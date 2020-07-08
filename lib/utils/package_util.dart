@@ -3,9 +3,8 @@ import 'package:package_info/package_info.dart';
 
 ///获取包信息 工具类
 class PackageUtil {
-
   static init() async {
-    DebugLogUtil.printLog("PackageUtil  init...",tag: 'yxjie');
+    DebugLogUtil.printLog("PackageUtil  init...", tag: 'yxjie');
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
     appName = packageInfo.appName;
     packageName = packageInfo.packageName;
@@ -24,5 +23,4 @@ class PackageUtil {
 
   ///获取 版本号
   static String versionCode;
-
 }

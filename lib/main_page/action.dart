@@ -1,7 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 
 //TODO replace with your own action
-enum MainAction { action, loadDone ,currentIndex}
+enum MainAction { action, loadDone, currentIndex }
 
 class MainActionCreator {
   static Action onAction() {
@@ -12,5 +12,6 @@ class MainActionCreator {
     return Action(MainAction.loadDone, payload: map);
   }
 
-  static Action onCurrentIndex(int index)=> Action(MainAction.currentIndex,payload: index);
+  static Action onCurrentIndex(int index) =>
+      Action(MainAction.currentIndex, payload: index);
 }
