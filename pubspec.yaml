@@ -47,6 +47,9 @@ dependencies:
   path_provider: ^1.6.9
   #数据解析工具类
   json_annotation: ^3.0.1
+  flutter_slidable: ^0.5.4
+  #Material motion
+  animations: ^1.1.1
 
 dev_dependencies:
   flutter_test:

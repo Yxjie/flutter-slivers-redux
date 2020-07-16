@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_list_rdux/utils/scheme_util.dart';
 
 import '../web_page.dart';
 
@@ -23,4 +24,20 @@ class NavigatorUtil {
                 webUrl: webUrl,
                 webTitle: '简书',
               )));
+
+  /// 执行页面跳转
+  static void push(BuildContext context, String url) {
+    if(url.startsWith('http')){
+      jumpWeb(context, url);
+      return;
+    }
+    Map<String, dynamic> urlParseRet = SchemeUtil.parseUrl(url);
+    Navigator.pushNamedAndRemoveUntil(context, urlParseRet['action'].toString(),
+            (route) {
+          if (route.settings.name == urlParseRet['action'].toString()) {
+            return false;
+          }
+          return true;
+        }, arguments: urlParseRet['params']);
+  }
 }

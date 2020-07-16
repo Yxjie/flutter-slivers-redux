@@ -19,11 +19,6 @@ class _SplashPageState extends State<SplashPage>
   void initState() {
     _countDown();
     super.initState();
-    //初始化PackageUtil
-    PackageUtil.init();
-    //JPush申请权限 ios 适用
-//    JPushManager.instance.applyJPushAuthorityIOS();
-//    JPushManager.instance.setupAlias("yxjie");
   }
 
   @override

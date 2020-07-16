@@ -8,3 +8,4 @@ export 'share_preferences_util.dart';
 export 'event_bus_util.dart';
 export 'api.dart';
 export 'db_util.dart';
+export 'scheme_util.dart';
