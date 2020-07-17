@@ -25,6 +25,7 @@ class RoundPathTest extends StatelessWidget {
             children: <Widget>[
 
               Text('argument = ${argument.toString()}'),
+              Text('index = ${(argument as Map)['index']}'),
 
               RaisedButton(onPressed:(){
                 String jumpUrl='flutter_app://RoundPathTest?index=2&userName=Yxjie';

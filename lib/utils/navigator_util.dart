@@ -34,6 +34,7 @@ class NavigatorUtil {
     Map<String, dynamic> urlParseRet = SchemeUtil.parseUrl(url);
     Navigator.pushNamedAndRemoveUntil(context, urlParseRet['action'].toString(),
             (route) {
+          //判断是否消除当前界面
           if (route.settings.name == urlParseRet['action'].toString()) {
             return false;
           }

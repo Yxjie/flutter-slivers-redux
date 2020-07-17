@@ -12,6 +12,7 @@ import 'demo/http_demo.dart';
 import 'demo/item_slide_demo.dart';
 import 'demo/jpush_test.dart';
 import 'demo/json_convert/json_date_test.dart';
+import 'demo/list_wrap_demo.dart';
 import 'demo/path_provider_demo.dart';
 import 'demo/round_path_test.dart';
 import 'demo/round_shape_test.dart';
@@ -55,6 +56,7 @@ class _AboutPageState extends State<AboutPage> {
           _buildListItem('Path Provider测试', PathProviderPage()),
           _buildListItem('画板Demo', DrawingBoardPage()),
           _buildListItem('侧滑item', ItemSlideWidget()),
+          _buildListItem('流式Widget多选测试', ListWrapTest()),
         ],
       ),
     );
