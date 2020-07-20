@@ -20,6 +20,8 @@ class _ListWrapState extends State<ListWrapTest> {
   bool multiSelected = false;
   String result;
 
+  GlobalKey wrapKey=GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +36,7 @@ class _ListWrapState extends State<ListWrapTest> {
             onPressed: () {
               setState(() {
                 multiSelected = !multiSelected;
+                (wrapKey.currentState as ListWrapState).reset();
               });
             },
             child: Text(multiSelected ? '多选' : '单选'),
@@ -46,6 +49,7 @@ class _ListWrapState extends State<ListWrapTest> {
               borderRadius: BorderRadius.all(Radius.circular(5)),
             ),
             child: ListWrapWidget<String>(
+              key: wrapKey,
               list: list,
               itemChild: ItemWidget(),
               title: '苹果全家桶',

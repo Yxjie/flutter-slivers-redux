@@ -13,19 +13,21 @@ class ListWrapWidget<T> extends StatefulWidget {
   ListWrapWidget(
       {@required this.list,
       @required this.itemChild,
+      Key key,
       this.title = '',
       this.subTitle = '',
       this.multiSelected = false,
       this.titleStyle,
-        this.selectedCall,
+      this.selectedCall,
       this.subTitleStyle})
-      : assert(list != null && itemChild != null);
+      : assert(list != null && itemChild != null),
+        super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _ListWrapState();
+  State<StatefulWidget> createState() => ListWrapState();
 }
 
-class _ListWrapState<T> extends State<ListWrapWidget> {
+class ListWrapState<T> extends State<ListWrapWidget> {
   //标题样式
   final titleStyle = TextStyle(color: Color(0xFF4C505B), fontSize: 14);
   final subTitleStyle = TextStyle(color: Color(0xFF757993), fontSize: 12);
@@ -50,7 +52,10 @@ class _ListWrapState<T> extends State<ListWrapWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        titleBar,
+        Offstage(
+          child: titleBar,
+          offstage: widget.title.isEmpty,
+        ),
         Wrap(
           children: widget.list.map((value) {
             return GestureDetector(
@@ -67,12 +72,11 @@ class _ListWrapState<T> extends State<ListWrapWidget> {
     );
   }
 
-
   ///获取选中数据
-  List<T> _getSelectedList<T>(){
-    var list=[];
+  List<T> _getSelectedList<T>() {
+    var list = [];
     for (int i = 0; i < widget.list.length; i++) {
-      if(selectedSet.contains(i)){
+      if (selectedSet.contains(i)) {
         list.add(widget.list[i]);
       }
     }
@@ -83,13 +87,18 @@ class _ListWrapState<T> extends State<ListWrapWidget> {
     return widget.list.indexOf(t);
   }
 
+  reset(){
+    selectedSet.clear();
+    selectedSet.add(0);
+  }
+
   ///改变选中index
   _changeSet(int index) {
     if (selectedSet.contains(index)) {
-        if(selectedSet.length ==1){
-          return;
-        }
-        selectedSet.remove(index);
+      if (selectedSet.length == 1) {
+        return;
+      }
+      selectedSet.remove(index);
     } else {
       if (widget.multiSelected) {
         //多选状态
