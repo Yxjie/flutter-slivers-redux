@@ -61,7 +61,9 @@ class ListWrapState<T> extends State<ListWrapWidget> {
             return GestureDetector(
               onTap: () {
                 _changeSet(_indexFromList(value));
-                widget.selectedCall(_getSelectedList());
+                if(widget.selectedCall !=null){
+                  widget.selectedCall(_getSelectedList());
+                }
               },
               child: widget.itemChild.buildContainer(
                   value, selectedSet.contains(_indexFromList(value))),
@@ -90,6 +92,9 @@ class ListWrapState<T> extends State<ListWrapWidget> {
   reset(){
     selectedSet.clear();
     selectedSet.add(0);
+    if(widget.selectedCall !=null){
+      widget.selectedCall(_getSelectedList());
+    }
   }
 
   ///改变选中index
@@ -130,4 +135,5 @@ abstract class ItemWrapWidget<T> extends StatelessWidget {
   Widget buildContainer(T bean, bool isSelected);
 }
 
+///获取选中的值
 typedef SelectedCall = void Function(dynamic);
