@@ -25,7 +25,7 @@ apply plugin: 'com.android.application'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 31
 
     lintOptions {
         disable 'InvalidPackage'
@@ -47,6 +47,7 @@ android {
 //        }
 
         manifestPlaceholders = [
+                applicationName: 'io.flutter.app.FlutterApplication',
                 JPUSH_PKGNAME: applicationId,
                 JPUSH_APPKEY : "90a526c60831f98453a1b974", // NOTE: JPush 上注册的包名对应的 Appkey.
                 JPUSH_CHANNEL: "developer-flutter", //暂时填写默认值即可.

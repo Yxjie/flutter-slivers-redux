@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 
 class PathProviderPage extends StatefulWidget {
@@ -106,7 +105,7 @@ class _PathProviderPageState extends State<PathProviderPage> {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: RaisedButton(
+              child: ElevatedButton(
                 child: const Text('Get Temporary Directory'),
                 onPressed: _requestTempDirectory,
               ),
@@ -115,7 +114,7 @@ class _PathProviderPageState extends State<PathProviderPage> {
                 future: _tempDirectory, builder: _buildDirectory),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: RaisedButton(
+              child: ElevatedButton(
                 child: const Text('Get Application Documents Directory'),
                 onPressed: _requestAppDocumentsDirectory,
               ),
@@ -124,7 +123,7 @@ class _PathProviderPageState extends State<PathProviderPage> {
                 future: _appDocumentsDirectory, builder: _buildDirectory),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: RaisedButton(
+              child: ElevatedButton(
                 child: const Text('Get Application Support Directory'),
                 onPressed: _requestAppSupportDirectory,
               ),
@@ -133,7 +132,7 @@ class _PathProviderPageState extends State<PathProviderPage> {
                 future: _appSupportDirectory, builder: _buildDirectory),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: RaisedButton(
+              child: ElevatedButton(
                 child: const Text('Get Application Library Directory'),
                 onPressed: _requestAppLibraryDirectory,
               ),
@@ -142,7 +141,7 @@ class _PathProviderPageState extends State<PathProviderPage> {
                 future: _appLibraryDirectory, builder: _buildDirectory),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: RaisedButton(
+              child: ElevatedButton(
                 child: Text(
                     '${Platform.isIOS ? "External directories are unavailable " "on iOS" : "Get External Storage Directory"}'),
                 onPressed:
@@ -154,7 +153,7 @@ class _PathProviderPageState extends State<PathProviderPage> {
             Column(children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: RaisedButton(
+                child: ElevatedButton(
                   child: Text(
                       '${Platform.isIOS ? "External directories are unavailable " "on iOS" : "Get External Storage Directories"}'),
                   onPressed: Platform.isIOS
@@ -173,7 +172,7 @@ class _PathProviderPageState extends State<PathProviderPage> {
             Column(children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: RaisedButton(
+                child: ElevatedButton(
                   child: Text(
                       '${Platform.isIOS ? "External directories are unavailable " "on iOS" : "Get External Cache Directories"}'),
                   onPressed:

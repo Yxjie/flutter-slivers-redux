@@ -1,8 +1,9 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter_list_rdux/utils/util_index.dart';
-import 'action.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_list_rdux/utils/util_index.dart';
 import 'package:toast/toast.dart';
+
+import 'action.dart';
 import 'state.dart';
 
 ///SnackBar context 不是Scaffold不能弹问题加入
@@ -32,7 +33,9 @@ Widget buildView(
                   case "hot":
                     var snackBar = SnackBar(content: Text("hot"));
 //                    Scaffold.of(viewService.context).showSnackBar(snackBar);//此种方式不行
-                    _scaffoldKey.currentState.showSnackBar(snackBar);
+//                     _scaffoldKey.currentState.showSnackBar(snackBar);
+                    ScaffoldMessenger.of(viewService.context)
+                        .showSnackBar(snackBar);
                     print("hot");
                     break;
                   case "new":

@@ -94,7 +94,7 @@ class _WebViewPageState extends State<WebViewPage> {
     return JavascriptChannel(
         name: 'Toaster',
         onMessageReceived: (JavascriptMessage message) {
-          Scaffold.of(context).showSnackBar(
+          ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(message.message)),
           );
         });
@@ -155,7 +155,7 @@ class WebViewMenuItemWidget extends StatelessWidget {
     if (await controller.canGoForward()) {
       await controller.goForward();
     } else {
-      Scaffold.of(context).showSnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("No forward history item")),
       );
     }
@@ -166,7 +166,7 @@ class WebViewMenuItemWidget extends StatelessWidget {
     if (await controller.canGoBack()) {
       await controller.goBack();
     } else {
-      Scaffold.of(context).showSnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("No back history item")),
       );
     }

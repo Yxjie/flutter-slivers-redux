@@ -11,9 +11,7 @@ class ShareDataWidget extends InheritedWidget {
 //    return context.inheritFromWidgetOfExactType(ShareDataWidget);
     //ancestorInheritedElementForWidgetOfExactType此方法TestWidget的didChangeDependencies不会调用
     //todo 注：build方法会被重新绘制
-    return context
-        .ancestorInheritedElementForWidgetOfExactType(ShareDataWidget)
-        .widget;
+    return context.dependOnInheritedWidgetOfExactType<ShareDataWidget>();
   }
 
   @override

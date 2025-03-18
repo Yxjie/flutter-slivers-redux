@@ -1,5 +1,3 @@
-import 'package:flutter/animation.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_list_rdux/utils/util_index.dart';
 
@@ -49,11 +47,11 @@ class _ScaleAnimationRouteState extends State<ScaleAnimationRoute>
           children: <Widget>[
             Row(
               children: <Widget>[
-                RaisedButton(
+                ElevatedButton(
                   onPressed: () => controller.forward(),
                   child: Text('执行动画forward'),
                 ),
-                RaisedButton(
+                ElevatedButton(
                   onPressed: () => controller.reverse(),
                   child: Text('执行动画reverse'),
                 ),

@@ -1,6 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_list_rdux/utils/util_index.dart';
-import 'package:dio/dio.dart';
 
 class HttpTest extends StatefulWidget {
   @override
@@ -28,14 +28,14 @@ class _HttpTestState extends State<HttpTest> {
         children: <Widget>[
           FractionallySizedBox(
             widthFactor: 1,
-            child: RaisedButton(
+            child: ElevatedButton(
               onPressed: _getData,
               child: Text('发起get请求'),
             ),
           ),
           FractionallySizedBox(
             widthFactor: 1,
-            child: RaisedButton(
+            child: ElevatedButton(
               onPressed: () {
                 HttpUtil.getInstance().cancelRequests(_cancelToken);
               },

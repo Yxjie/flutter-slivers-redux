@@ -41,7 +41,6 @@ class _LoginState extends BaseState<LoginPage, ILoginView, LoginPresenter>
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
       child: Form(
-          autovalidate: true,
           key: _formKey,
           child: Column(
             children: <Widget>[
@@ -77,8 +76,9 @@ class _LoginState extends BaseState<LoginPage, ILoginView, LoginPresenter>
                 margin: const EdgeInsets.only(top: 50),
                 child: FractionallySizedBox(
                   widthFactor: 1,
-                  child: RaisedButton(
-                    color: Theme.of(context).primaryColor,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Theme.of(context).primaryColor),
                     onPressed: () {
                       //校验输入框
                       if ((_formKey.currentState as FormState).validate()) {

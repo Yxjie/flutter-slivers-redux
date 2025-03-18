@@ -10,7 +10,6 @@ import 'demo/edit_txt_demo.dart';
 import 'demo/gesture_recognizer_demo.dart';
 import 'demo/http_demo.dart';
 import 'demo/item_slide_demo.dart';
-import 'demo/jpush_test.dart';
 import 'demo/json_convert/json_date_test.dart';
 import 'demo/list_wrap_demo.dart';
 import 'demo/path_provider_demo.dart';
@@ -52,7 +51,7 @@ class _AboutPageState extends State<AboutPage> {
           _buildListItem('动画', ScaleAnimationRoute()),
           _buildListItem('带有圆角控件', RoundShapeTest()),
           _buildListItem('支持各种圆角布局样式Widget', RoundPathTest()),
-          _buildListItem('JPush测试', JPushTestWidget()),
+          // _buildListItem('JPush测试', JPushTestWidget()),
           _buildListItem('Path Provider测试', PathProviderPage()),
           _buildListItem('画板Demo', DrawingBoardPage()),
           _buildListItem('侧滑item', ItemSlideWidget()),

@@ -9,7 +9,7 @@ class BtnPage extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {},
             child: Text('RaisedButton'),
           ),
@@ -19,21 +19,19 @@ class BtnPage extends StatelessWidget {
             ),
             child: SizedBox(
               width: 200,
-              child: FlatButton(
+              child: TextButton(
                 onPressed: () {},
                 child: Text('FlatButton'),
-                color: Colors.green,
-                disabledColor: Colors.lightGreen,
-                textColor: Colors.white,
-                disabledTextColor: Colors.blueGrey,
-                splashColor: Colors.red,
-                highlightColor: Colors.blue,
-                shape: StadiumBorder(
-                    side: BorderSide(
-                  color: Colors.blueGrey,
-                  style: BorderStyle.none,
-                  width: 80,
-                )),
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  disabledBackgroundColor: Colors.lightGreen,
+                  shape: StadiumBorder(
+                      side: BorderSide(
+                    color: Colors.blueGrey,
+                    style: BorderStyle.none,
+                    width: 80,
+                  )),
+                ),
               ),
             ),
           ),

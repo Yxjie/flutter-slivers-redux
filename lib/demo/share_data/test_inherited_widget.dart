@@ -26,7 +26,7 @@ class _TestInheritedWidgetState extends State<TestInheritedWidget> {
                 padding: const EdgeInsets.only(bottom: 20.0),
                 child: TestWidget(),
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text("增加"),
                 onPressed: () {
                   setState(() {

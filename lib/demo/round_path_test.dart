@@ -6,14 +6,13 @@ import 'package:flutter_list_rdux/widgets/round_path_widget.dart';
 import 'package:toast/toast.dart';
 
 class RoundPathTest extends StatelessWidget {
-
-  static final String routerName='RoundPathTest';
+  static final String routerName = 'RoundPathTest';
 
   final List<String> strList = ['支持圆形', '支持圆角矩形', '支持不同角的矩形', '看起来不还不错！！！'];
 
   @override
   Widget build(BuildContext context) {
-    Object argument=AppRoute.argument(context);
+    Object argument = AppRoute.argument(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -23,16 +22,17 @@ class RoundPathTest extends StatelessWidget {
         child: Center(
           child: Column(
             children: <Widget>[
-
               Text('argument = ${argument.toString()}'),
               Text('index = ${(argument as Map)['index']}'),
-
-              RaisedButton(onPressed:(){
-                String jumpUrl='flutter_app://RoundPathTest?index=2&userName=Yxjie';
-                Toast.show('发送jumpUrl = $jumpUrl', context);
-                NavigatorUtil.push(context,jumpUrl);
-              },child: Text('scheme跳转自己，传值'),),
-
+              ElevatedButton(
+                onPressed: () {
+                  String jumpUrl =
+                      'flutter_app://RoundPathTest?index=2&userName=Yxjie';
+                  Toast.show('发送jumpUrl = $jumpUrl', context);
+                  NavigatorUtil.push(context, jumpUrl);
+                },
+                child: Text('scheme跳转自己，传值'),
+              ),
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: FontMarqueeWidget(

@@ -20,7 +20,7 @@ class _EditTxtState extends State<EditTxtDemo> {
           EditTextWidget(
             hintTxt: '请输入密码',
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               print("RaisedButton ==== ${editTxt.txtString}");
             },

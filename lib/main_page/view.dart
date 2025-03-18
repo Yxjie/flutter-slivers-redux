@@ -26,9 +26,7 @@ Widget buildView(MainState state, Dispatch dispatch, ViewService viewService) {
       items: state.tabList
           .map((item) => BottomNavigationBarItem(
                 icon: item['icon'],
-                title: Text(
-                  item['text'],
-                ),
+                label: item['text'],
               ))
           .toList(),
       currentIndex: state.currentIndex,

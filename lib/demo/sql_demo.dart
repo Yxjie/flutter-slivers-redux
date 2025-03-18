@@ -59,19 +59,21 @@ class _SQLDemoState extends State<SQLDemo> {
               runSpacing: 4,
               alignment: WrapAlignment.center,
               children: <Widget>[
-                RaisedButton(
-                    onPressed: () {
-                      _nameController.clear();
-                      _ageController.clear();
-                    },
-                    child: Text(
-                      "清空",
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    ),
-                    color: Colors.orange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                    )),
+                ElevatedButton(
+                  onPressed: () {
+                    _nameController.clear();
+                    _ageController.clear();
+                  },
+                  child: Text(
+                    "清空",
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.orange,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      )),
+                ),
                 _getButton('插入数据', ActionType.ADD, context),
                 _getButton('删除数据', ActionType.DELETE, context),
                 _getButton('更新数据', ActionType.UPDATE, context),
@@ -111,16 +113,18 @@ class _SQLDemoState extends State<SQLDemo> {
   }
 
   _getButton(String buttonName, ActionType action, BuildContext context) {
-    return RaisedButton(
-        onPressed: () => _getActionCallback(action, context),
-        child: Text(
-          buttonName,
-          style: TextStyle(color: Colors.white, fontSize: 18),
-        ),
-        color: Theme.of(context).primaryColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5),
-        ));
+    return ElevatedButton(
+      onPressed: () => _getActionCallback(action, context),
+      child: Text(
+        buttonName,
+        style: TextStyle(color: Colors.white, fontSize: 18),
+      ),
+      style: ElevatedButton.styleFrom(
+          backgroundColor: Theme.of(context).primaryColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          )),
+    );
   }
 
   ///处理对应 数据库操作

@@ -20,7 +20,7 @@ class _ListWrapState extends State<ListWrapTest> {
   bool multiSelected = false;
   String result;
 
-  GlobalKey wrapKey=GlobalKey();
+  GlobalKey wrapKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class _ListWrapState extends State<ListWrapTest> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text('选取数据：$result'),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               setState(() {
                 multiSelected = !multiSelected;
@@ -45,7 +45,7 @@ class _ListWrapState extends State<ListWrapTest> {
             margin: EdgeInsets.all(5),
             padding: EdgeInsets.all(8),
             decoration: BoxDecoration(
-               border: Border.all(color: Color(0xFFFF0000), width: 0.5),
+              border: Border.all(color: Color(0xFFFF0000), width: 0.5),
               borderRadius: BorderRadius.all(Radius.circular(5)),
             ),
             child: ListWrapWidget<String>(
@@ -55,10 +55,10 @@ class _ListWrapState extends State<ListWrapTest> {
               title: '苹果全家桶',
               subTitle: '(效果如何)',
               multiSelected: multiSelected,
-              selectedCall: (list){
+              selectedCall: (list) {
                 setState(() {
                   print('获取内容 = ${(list as List).length}');
-                  result=list.toString();
+                  result = list.toString();
                 });
               },
             ),
