@@ -35,8 +35,13 @@ class _DrawingBoardState extends State<DrawingBoardPage> {
       child: Container(
         width: double.infinity,
         height: double.infinity,
-        child: CustomPaint(
-          painter: DrawingBoardPainter(_path),
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('画板Demo'),
+          ),
+          body: CustomPaint(
+            painter: DrawingBoardPainter(_path),
+          ),
         ),
       ),
     );

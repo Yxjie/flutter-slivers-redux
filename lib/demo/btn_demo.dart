@@ -11,7 +11,7 @@ class BtnPage extends StatelessWidget {
         children: <Widget>[
           ElevatedButton(
             onPressed: () {},
-            child: Text('RaisedButton'),
+            child: Text('ElevatedButton'),
           ),
           ConstrainedBox(
             constraints: BoxConstraints(
@@ -21,7 +21,7 @@ class BtnPage extends StatelessWidget {
               width: 200,
               child: TextButton(
                 onPressed: () {},
-                child: Text('FlatButton'),
+                child: Text('TextButton'),
                 style: TextButton.styleFrom(
                   backgroundColor: Colors.green,
                   disabledBackgroundColor: Colors.lightGreen,
