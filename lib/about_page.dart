@@ -16,6 +16,7 @@ import 'demo/path_provider_demo.dart';
 import 'demo/round_path_test.dart';
 import 'demo/round_shape_test.dart';
 import 'demo/share_data/test_inherited_widget.dart';
+import 'demo/test_langchain_api.dart';
 import 'mvp/login/login_page.dart';
 import 'utils/util_index.dart';
 
@@ -56,6 +57,7 @@ class _AboutPageState extends State<AboutPage> {
           _buildListItem('画板Demo', DrawingBoardPage()),
           _buildListItem('侧滑item', ItemSlideWidget()),
           _buildListItem('流式Widget多选测试', ListWrapTest()),
+          _buildListItem('智能QA系统', QALangChain())
         ],
       ),
     );

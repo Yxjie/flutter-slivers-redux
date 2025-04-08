@@ -1,8 +1,8 @@
 import 'dart:io';
+
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
-import 'package:flutter_list_rdux/utils/api.dart';
 import 'package:flutter_list_rdux/utils/util_index.dart';
 
 ///网络请求封装
@@ -108,7 +108,7 @@ class HttpUtil {
       {Map<String, dynamic> params, CancelToken cancelToken}) async {
     Response response = await _dio.post(urlPath,
         options: buildCacheOptions(Duration(days: 3)),
-        queryParameters: params,
+        data: params,
         cancelToken: cancelToken);
 //    DebugLogUtil.printHttp(response);
     return response.data;
